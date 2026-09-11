@@ -1,40 +1,38 @@
-# Valley AI 참고 디자인 시스템
+# Valley AI Mobile Portfolio Design System
 
-이 폴더는 Valley AI 웹 개발자도구에서 확인한 스타일 토큰을 참고해, `NeuroFusionMobilePractice`의 모바일 투자분석 화면 설계에 사용할 디자인 시스템 초안을 정리한 곳입니다.
+이 폴더는 Valley AI Web 개발자도구 스타일과 Valley AI Mobile 실기기 스크린샷을 근거로, `NeuroFusionMobilePractice`의 **Mobile Portfolio** 화면을 설계·구현하기 위한 참고 디자인 시스템입니다.
 
-원본 Valley 스타일을 그대로 복제하기보다, 모바일 `Portfolio-aware Event Triage` 화면에 필요한 구조적 원칙과 재사용 가능한 토큰으로 재구성했습니다.
+Valley AI 공식 디자인 시스템이나 1:1 복제본이 아닙니다. Web의 primitive/token 구조는 보존하되, Mobile의 Light/Dark theme, 밀도, Bottom Sheet, List Row와 금융 데이터 표현을 별도 semantic layer로 정리합니다.
 
-## 빠른 탐색
+## Source 우선순위
 
-| 폴더 | 내용 | 먼저 볼 파일 |
-|---|---|---|
-| `foundations/` | 색상, 타이포그래피, 간격, 모션, 접근성 같은 기본 규칙 | [01-colors.md](foundations/01-colors.md) |
-| `tokens/` | 실제 화면 제작에서 가져다 쓸 수 있는 CSS 변수 | [valley-reference-tokens.css](tokens/valley-reference-tokens.css) |
-| `components/` | 버튼, 카드, 배지, 탭, 데이터 표시, 상태 UI 규칙 | [README.md](components/README.md) |
-| `Icon/` | 화면에서 사용할 아이콘 |  | 
-| `patterns/` | 투자분석 화면에서 반복될 정보 구조와 화면 패턴 | [portfolio-aware-event-triage.md](patterns/portfolio-aware-event-triage.md) |
-| `checklists/` | 디자인/구현 전 검수 체크리스트 | [mobile-design-qa.md](checklists/mobile-design-qa.md) |
+1. Mobile Portfolio Prototype UX Specification
+2. Mobile Portfolio Decision Log
+3. Mobile Portfolio PRD
+4. Valley AI Mobile 기본 배율 실기기 Screenshot
+5. Valley AI Web 개발자도구 CSS
+6. Historical Research
 
-## 사용 원칙
+제품 요구사항과 화면 동작은 Prototype UX Specification을 따릅니다. Web CSS와 Screenshot은 visual evidence이며 새로운 제품 요구사항을 만들지 않습니다.
 
-1. `tokens/valley-reference-tokens.css`를 먼저 읽고 색상, 글꼴, 반경, 그림자 기준을 확인한다.
-2. 화면의 정보 구조는 `patterns/portfolio-aware-event-triage.md`를 우선 따른다.
-3. 컴포넌트 형태는 `components/` 문서의 역할과 상태 규칙을 참고한다.
-4. 디자인 또는 구현 후 `checklists/mobile-design-qa.md`로 과장된 투자 판단 표현, 개인정보 노출, 상태 누락을 확인한다.
-5. Icon/Svg는 원본 파일이므로 수정을 금지한다.
+## 폴더
 
-## Valley 스타일에서 확인한 큰 방향
+| 폴더 | 내용 |
+|---|---|
+| `foundations/` | Source 경계, Light/Dark color, typography, spacing, radius, accessibility |
+| `tokens/` | Theme별 CSS variables와 token mapping |
+| `components/` | Button, Surface, Tabs, Choice Chip, Selection, Bottom Sheet, List Row, 상태 |
+| `patterns/` | Mobile Portfolio 화면 패턴과 별도 Workstream 패턴 |
+| `Icon/` | 기존 SVG icon. 원본 파일 수정 금지 |
+| `checklists/` | 디자인·구현 QA |
 
-- 기본 배경은 밝은 회색 계열의 대시보드 톤이다.
-- 카드는 흰색 또는 매우 옅은 회색 표면 위에 낮은 그림자와 얇은 경계로 구분된다.
-- Primary 색은 green 계열, 보조 정보는 teal/sky/blue 계열을 사용한다.
-- Error, Warning, Success, Info처럼 의미 기반 색상군이 분리되어 있다.
-- Pretendard Variable을 중심으로 한 한국어 친화 타이포그래피를 사용한다.
-- 모바일/데스크톱 배경 토큰이 분리되어 있어 화면 크기에 따라 표면 밀도를 조절할 수 있다.
+## 핵심 원칙
 
-## 주의 사항
-
-- 이 문서는 Valley AI 공식 디자인 시스템이 아니다.
-- 첨부된 CSS 덤프의 모든 변수를 옮기지 않았다. 현재 모바일 화면 제작에 필요한 대표 토큰만 선별했다.
-- 투자 추천, 수익 예측, 매수/매도/보유 판단을 만드는 데 사용하지 않는다.
-- 실제 Production 적용 전에는 접근성, 법무/컴플라이언스, 데이터 표시 정책 검토가 필요하다.
+- Light와 Dark는 같은 semantic token 이름에 theme별 값을 연결한다.
+- Mobile Portfolio는 Dark Theme를 우선 설계하되 Light token을 삭제하지 않는다.
+- Primitive를 화면에서 직접 사용하지 않고 semantic/component token을 사용한다.
+- 카드보다 spacing과 낮은 divider로 그룹을 만든다.
+- 금융 손익은 success/error가 아니라 gain/loss/flat token으로 표현한다.
+- 색상만으로 손익이나 상태를 전달하지 않는다.
+- Event Triage 전용 제한을 Mobile Portfolio 전역 규칙으로 사용하지 않는다.
+- 실제 구현 전 `patterns/mobile-portfolio.md`와 UX Specification을 함께 확인한다.
