@@ -28,6 +28,8 @@ Disabled는 모든 UI에서 같은 component token을 사용합니다.
 - `--nf-control-disabled-text`
 - `--nf-control-disabled-icon`
 
+Disabled Button은 시각 상태뿐 아니라 실제 입력도 차단합니다. Native button에서는 `disabled` attribute를 사용하고, custom control에서는 click·keyboard·submit 경로를 모두 차단합니다. `aria-disabled`만 표시하고 동작을 남겨두지 않습니다.
+
 Disabled는 의도적으로 낮은 대비를 허용합니다. 다만 활성 control과 상태가 구분되어야 하며, 조건을 이해하기 어려우면 인접 안내 문구를 제공합니다.
 
 F-02:
@@ -39,3 +41,6 @@ F-02:
 ## F-06 Text Action
 
 Aggregate metric에는 전역 수정 action을 두지 않습니다. `포트폴리오별로 보기`를 펼친 뒤 각 Portfolio row의 `수정` Text Button으로 해당 Holding Snapshot 수정에 진입합니다.
+
+
+F-06 `수정`은 Text Button으로 표시하되 최초 시안에서는 44×44px hit area를 확보합니다. Text의 시각 크기와 hit area는 분리합니다. Visual Review 후 44px 미만을 검토할 경우 accessibility risk를 별도 Gate로 다시 판정합니다.
