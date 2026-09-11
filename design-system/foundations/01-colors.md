@@ -55,3 +55,14 @@ Screenshot 값은 token 선택을 위한 Evidence이며 별도의 유사 HEX를 
 - Screenshot마다 새 HEX token을 추가
 - 색상만으로 손익·선택·상태 전달
 - Gain/Loss를 Success/Error와 같은 의미로 처리
+
+
+## Derived Selected Color
+
+`color-mix()`는 두 token을 지정 비율로 섞어 selected surface를 만드는 CSS 함수입니다.
+
+```css
+color-mix(in srgb, var(--nf-green-500) 8%, var(--nf-zinc-900))
+```
+
+Mobile Dark에서는 Green 8%와 Page Dark 92%를 섞어 강하지 않은 selected background를 만듭니다. 별도 one-off HEX를 만들지 않는 장점이 있습니다. 대상 runtime에서 지원하지 않으면 구현 단계에서 계산된 고정 fallback 값을 함께 제공합니다.
