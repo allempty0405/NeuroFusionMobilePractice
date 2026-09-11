@@ -1,13 +1,16 @@
 # Components
 
-이 폴더는 모바일 투자분석 화면에서 반복될 컴포넌트의 역할과 상태를 정리합니다.
+Mobile Portfolio에서 반복되는 범용 component와 상태를 정리합니다.
 
 | 파일 | 내용 |
 |---|---|
-| [buttons-and-cta.md](buttons-and-cta.md) | 버튼, Web Handoff CTA, retry |
-| [cards-and-surfaces.md](cards-and-surfaces.md) | 카드, 요약 영역, 근거 영역 |
-| [badges-tabs-filters.md](badges-tabs-filters.md) | Outcome, 관계, 이벤트 유형, 필터 |
-| [data-and-evidence.md](data-and-evidence.md) | Source, Timestamp, Evidence Card |
-| [feedback-states.md](feedback-states.md) | Loading, Empty, Stale, Permission, Error |
+| `buttons-and-cta.md` | Primary/Secondary/Text/Disabled/Sticky CTA |
+| `cards-and-surfaces.md` | Page, Hero, grouped surface, divider |
+| `badges-tabs-filters.md` | Navigation Tabs, Dimension Tabs, Filter, Choice Chip |
+| `selection-controls.md` | Checkbox, Radio, zero-selection |
+| `bottom-sheet.md` | Sheet, scrim, internal scroll, sticky action |
+| `list-rows.md` | Portfolio/Holding/Breakdown/Search rows |
+| `data-and-evidence.md` | 금융값, reporting currency, metadata |
+| `feedback-states.md` | Loading, Empty, Disabled, Error |
 
-컴포넌트는 정보 위계를 보조하기 위한 수단입니다. 기능이 많아 보이게 하기 위해 컴포넌트를 늘리지 않습니다.
+Component는 정보 위계를 보조합니다. 기능이 많아 보이게 하기 위해 Card, Badge, Chip을 늘리지 않습니다. Event Triage 전용 component는 해당 pattern 문서에 한정합니다.
