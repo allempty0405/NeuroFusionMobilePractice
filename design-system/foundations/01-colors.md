@@ -25,7 +25,7 @@ Color는 `primitive → semantic → component state` 순서로 사용합니다.
 | Divider | `#2D2C2F` | `zinc-800` |
 | Primary | 약 `#22C55E` | `green-500` |
 
-Screenshot 값은 token 선택을 위한 Evidence이며 별도의 유사 HEX를 계속 늘리지 않습니다. 명확한 대응 primitive가 없는 Scrim이나 혼합 selected surface만 semantic derived value를 허용합니다.
+Screenshot 값은 token 선택을 위한 Evidence이며 별도의 유사 HEX를 계속 늘리지 않습니다. 명확한 대응 primitive가 없는 Scrim과 selected surface는 Screenshot reference에서 확정한 고정 semantic 값을 사용합니다.
 
 ## Financial Color
 
@@ -57,12 +57,6 @@ Screenshot 값은 token 선택을 위한 Evidence이며 별도의 유사 HEX를 
 - Gain/Loss를 Success/Error와 같은 의미로 처리
 
 
-## Derived Selected Color
+## Fixed Selected Color
 
-`color-mix()`는 두 token을 지정 비율로 섞어 selected surface를 만드는 CSS 함수입니다.
-
-```css
-color-mix(in srgb, var(--nf-green-500) 8%, var(--nf-zinc-900))
-```
-
-Mobile Dark에서는 Green 8%와 Page Dark 92%를 섞어 강하지 않은 selected background를 만듭니다. 별도 one-off HEX를 만들지 않는 장점이 있습니다. 대상 runtime에서 지원하지 않으면 구현 단계에서 계산된 고정 fallback 값을 함께 제공합니다.
+Mobile Dark selected surface는 투명도나 `color-mix()`를 사용하지 않고 Screenshot reference와 가까운 고정값 `#1E2520`을 사용합니다. 배경과 조합되는 결과가 실행 환경마다 달라지지 않도록 합니다.
