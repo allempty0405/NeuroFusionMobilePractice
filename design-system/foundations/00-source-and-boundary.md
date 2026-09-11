@@ -1,50 +1,47 @@
 # Source & Boundary
 
-## 참고 Source
+## Source
 
-사용자가 제공한 Valley AI 웹 개발자도구 CSS 덤프를 주요 참고 자료로 사용했습니다.
+이 시스템은 두 종류의 Visual Evidence를 사용합니다.
 
-확인된 대표 토큰군:
+| Source | 용도 | 한계 |
+|---|---|---|
+| Valley AI Web 개발자도구 CSS | Primitive, semantic naming, Web Light 값 | Mobile Dark 구조와 동일하다고 가정하지 않음 |
+| Valley AI Mobile 실기기 Screenshot | Mobile hierarchy, density, Light/Dark surface, component geometry | Screenshot만으로 제품 요구사항을 만들지 않음 |
 
-- `--definitive-*`: 원시 색상 팔레트
-- `--semantic-*`: 의미 기반 색상
-- `--bg-*`: 배경 상태 색상
-- `--border-*`: 경계선 상태 색상
-- `--text-*`: 텍스트 상태 색상
-- `--global-*`: 대시보드, 카드, 드롭다운 같은 전역 표면 색상
-- `--chart-*`: 차트 색상
-- `--membership-*`: 플랜/멤버십 표현용 그라디언트
-- `--text-*`, `--font-weight-*`: 타이포그래피
-- `--radius-*`, `--shadow-card`: 형태와 깊이
-- `--valley-*`: 내비게이션과 viewport 관련 레이아웃 값
+실기기 기준은 Galaxy S25 Ultra, FHD+ 2340×1080, 기본 글자 크기, 기본 화면 크기입니다. Dark JPG는 구조 검증에 사용하고, 색상값은 PNG와 Web token을 함께 대조합니다.
 
-## 이 디자인 시스템의 범위
+## 범위
 
-이 자료는 `Portfolio-aware Event Triage` 모바일 상세 화면 제작을 위한 참고 디자인 시스템입니다.
+현재 Primary 범위는 **Mobile Portfolio**입니다.
 
 포함:
 
-- 모바일 투자분석 화면용 색상 토큰
-- 한국어 중심 타이포그래피 기준
-- 카드, 버튼, 배지, 탭, 상태 UI의 사용 원칙
-- Event, Asset, Portfolio, Evidence, Handoff 정보 구조
-- Mock/Production 경계와 금융 Trust 체크리스트
+- Light/Dark theme semantic variables
+- Mobile typography와 financial number hierarchy
+- spacing, radius, divider, scrim
+- Tabs, Choice Chip, Checkbox/Radio
+- Button, Sticky CTA, Bottom Sheet
+- Portfolio/Holding List Row
+- Portfolio empty/disabled state
+- Currency selector와 reporting currency 표현
+
+별도 Pattern:
+
+- `patterns/portfolio-aware-event-triage.md`는 Event Triage Workstream 전용입니다.
+- Event Triage의 실제 보유값 제한, Outcome, Evidence, Web handoff 규칙은 Mobile Portfolio 전역에 적용하지 않습니다.
 
 제외:
 
-- Valley AI 전체 제품 디자인 시스템
-- Valley 원본 UI의 1:1 복제
-- 실제 API 또는 데이터 계약
-- 투자 판단 로직
-- 매수/매도/보유 추천 문구
-- 실제 포트폴리오 값 표시 정책
+- Valley AI 전체 제품의 공식 디자인 시스템
+- 실제 데이터 계약과 계산 로직
+- 거래 History와 transaction accounting
+- 현금성 자산
+- 매수·매도·보유 추천 표현
 
-## Production 사용 전 필요한 검토
+## 변경 원칙
 
-| 항목 | 현재 상태 | 필요한 검토 |
-|---|---|---|
-| 실제 데이터 필드 | 미확정 | Phase 5.5 Data Contract 확인 |
-| Outcome 로직 | 미확정 | Product/Data/Compliance 검토 |
-| Handoff payload | 미확정 | Web/Frontend/Backend 계약 |
-| 개인정보 표시 | 미확정 | Privacy/Masking 정책 |
-| 접근성 | 초안 | 모바일 실기기 및 Screen Reader 검증 |
+1. Web Light 값은 삭제하지 않고 `[data-theme="light"]`에 보존합니다.
+2. Mobile Screenshot에서 확인한 Dark 값은 `[data-theme="dark"]`에 분리합니다.
+3. Screenshot 추정값은 `reference`이며 Production 적용 전 contrast와 실기기 QA를 수행합니다.
+4. 새 token이나 component는 사용 상황과 금지 상황을 함께 기록합니다.
