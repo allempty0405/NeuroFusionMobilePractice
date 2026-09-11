@@ -2,10 +2,16 @@
 
 ## Font Family
 
-Web CSS에서 확인된 Pretendard Variable을 우선 reference로 사용합니다. Mobile 앱의 실제 font family는 별도 코드 확인 전까지 provisional입니다.
+Web과 Mobile 모두 Pretendard Variable을 사용합니다. Mobile Portfolio의 기본 font family로 확정합니다.
 
 ```css
 font-family: "Pretendard Variable", Pretendard, ui-sans-serif, system-ui, sans-serif;
+```
+
+## Font Decision
+
+```text
+MOBILE FONT FAMILY: PRETENDARD — LOCKED
 ```
 
 ## Base Scale
