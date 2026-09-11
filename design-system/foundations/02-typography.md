@@ -50,3 +50,22 @@ MOBILE FONT FAMILY: PRETENDARD — LOCKED
 - Mobile Portfolio 금액 축약 금지
 - Secondary currency는 Primary보다 크기·명도를 낮춤
 - 작은 metadata를 일괄 bold 처리하지 않음
+
+
+## Font Asset Verification
+
+사용자가 전달한 Pretendard OTF 9종을 확인했습니다.
+
+- Thin
+- ExtraLight
+- Light
+- Regular
+- Medium
+- SemiBold
+- Bold
+- ExtraBold
+- Black
+
+현재 semantic role에서 필요한 weight는 Regular 400, Medium 500, SemiBold 600, Bold 700입니다. 나머지 weight는 장식적 위계 확장을 위해 자동 사용하지 않습니다.
+
+Font binary는 Wireframe 산출물에서 직접 사용하고, 실제 구현 repository에 asset을 연결할 때 경로·라이선스·bundle size를 함께 검토합니다.
