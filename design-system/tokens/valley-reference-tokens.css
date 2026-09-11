@@ -121,7 +121,7 @@
   --nf-surface-raised: var(--nf-zinc-800);
   --nf-surface-muted: var(--nf-zinc-700);
   --nf-surface-input: var(--nf-zinc-600);
-  --nf-surface-selected: color-mix(in srgb, var(--nf-green-500) 8%, var(--nf-zinc-900));
+  --nf-surface-selected: #1e2520;
 
   --nf-text-title: var(--nf-zinc-100);
   --nf-text-strong: var(--nf-zinc-200);
@@ -171,7 +171,7 @@
     --nf-surface-raised: var(--nf-zinc-800);
     --nf-surface-muted: var(--nf-zinc-700);
     --nf-surface-input: var(--nf-zinc-600);
-    --nf-surface-selected: color-mix(in srgb, var(--nf-green-500) 8%, var(--nf-zinc-900));
+    --nf-surface-selected: #1e2520;
 
     --nf-text-title: var(--nf-zinc-100);
     --nf-text-strong: var(--nf-zinc-200);
