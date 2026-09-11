@@ -20,7 +20,7 @@
 - [ ] 반복 Holding/Portfolio를 Card로 만들지 않는다.
 - [ ] Touch target이 44×44px 이상이다.
 - [ ] Bottom Sheet에 scrim, handle, scroll, safe area가 있다.
-- [ ] Disabled control은 공통 token을 사용한다.
+- [ ] Disabled control은 공통 token을 사용하고 실제 click·keyboard·submit 입력을 차단한다.
 - [ ] Icon에 text glyph를 사용하지 않는다.
 - [ ] Sticky CTA가 마지막 콘텐츠를 가리지 않는다.
 
@@ -32,7 +32,7 @@
 - [ ] F-03 금액을 축약하지 않는다.
 - [ ] F-05 기본 sort는 가나다다.
 - [ ] F-06 breakdown은 inline이고 Chevron이 없다.
-- [ ] F-06 수정은 Portfolio row의 Text Button이다.
+- [ ] F-06 수정은 Portfolio row의 Text Button이며 최초 hit area는 44×44px이다.
 - [ ] 거래 History와 현금성 자산을 Core에 넣지 않는다.
 - [ ] Back이 실제 entry history를 따른다.
 
@@ -49,3 +49,9 @@
 - [ ] No Portfolio와 Empty Portfolio가 구분된다.
 - [ ] 계산되지 않은 값은 0 대신 em dash다.
 - [ ] Gain/Loss/Flat을 색상만으로 전달하지 않는다.
+
+
+## Visual Review Hold
+
+- [ ] F-06 Text Button 44px hit area가 hierarchy와 density를 해치지 않는지 시안으로 확인한다.
+- [ ] F-03 비축약 금액이 360px에서 overflow하지 않는지 시안으로 확인한다.
