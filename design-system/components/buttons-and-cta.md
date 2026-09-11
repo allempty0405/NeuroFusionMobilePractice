@@ -1,46 +1,41 @@
 # Buttons & CTA
 
-## 역할
-
-모바일 투자분석 화면의 버튼은 사용자가 다음 행동을 선택하게 돕습니다. 투자 행동을 유도하지 않습니다.
-
-## Button Types
+## 유형
 
 | 유형 | 용도 | 예 |
 |---|---|---|
-| Primary CTA | Web 분석으로 이동 | `Web에서 자세히 보기` |
-| Secondary CTA | 근거 확장, 원문 보기 | `근거 보기`, `출처 확인` |
-| Tertiary CTA | 닫기, 나중에 보기 | `지금은 확인하지 않기` |
-| Retry CTA | 실패 회복 | `다시 시도` |
-| Disabled CTA | 권한/데이터 부족 | `권한 필요`, `데이터 부족` |
+| Primary | 화면의 한 가지 핵심 완료 | 적용하기, 종목 추가, 저장 |
+| Secondary | 핵심 행동을 보조 | 다시 시도, 필터 초기화 |
+| Text | 대상 가까이 있는 경량 행동 | 수정, 전체 |
+| Icon | 공간이 제한된 탐색/도구 | Back, Close, More |
+| Sticky | 긴 화면에서 지속해야 할 Primary | 종목 추가 |
+| Disabled | 선행 조건 미충족 | 0개 선택 상태의 적용하기 |
 
-## Handoff CTA
+## 공통
 
-권장 문구:
+- 터치 영역 최소 44×44px
+- Primary CTA는 한 화면에 하나
+- Button label은 행동 결과를 설명
+- Loading 중 중복 실행 방지
+- Sticky CTA 아래 safe area 확보
+- Text Button은 icon 없이도 의미가 분명할 때 text만 사용
 
-- `Web에서 자세히 보기`
-- `실적 및 전망으로 이동`
-- `관련 종목 분석 보기`
+## Disabled
 
-피해야 할 문구:
+Disabled는 모든 UI에서 같은 component token을 사용합니다.
 
-- `매수 기회 확인`
-- `지금 투자하기`
-- `위험 종목 보기`
-- `수익 가능성 확인`
+- `--nf-control-disabled-bg`
+- `--nf-control-disabled-text`
+- `--nf-control-disabled-icon`
 
-## 상태
+Disabled는 의도적으로 낮은 대비를 허용합니다. 다만 활성 control과 상태가 구분되어야 하며, 조건을 이해하기 어려우면 인접 안내 문구를 제공합니다.
 
-| 상태 | 규칙 |
-|---|---|
-| Default | 목적지가 명확해야 함 |
-| Loading | 버튼 내부 또는 인접 영역에 진행 상태 표시 |
-| Disabled | 왜 사용할 수 없는지 설명 |
-| Error | Retry와 오류 이유를 함께 제공 |
-| Success Simulation | Concept 시뮬레이션임을 숨기지 않음 |
+F-02:
 
-## 크기
+- 0개 선택 시 `적용하기` disabled
+- 버튼 위: `포트폴리오를 1개 이상 선택해 주세요.`
+- 1개 이상 선택 시 즉시 활성화
 
-- 최소 터치 영역: 44x44px
-- 모바일 주요 CTA는 화면 하단 sticky 사용 가능
-- Sticky CTA가 Evidence 또는 Source 정보를 가리지 않도록 하단 여백 확보
+## F-06 Text Action
+
+Aggregate metric에는 전역 수정 action을 두지 않습니다. `포트폴리오별로 보기`를 펼친 뒤 각 Portfolio row의 `수정` Text Button으로 해당 Holding Snapshot 수정에 진입합니다.
