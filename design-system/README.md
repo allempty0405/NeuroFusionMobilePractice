@@ -11,6 +11,7 @@
 | `foundations/` | 색상, 타이포그래피, 간격, 모션, 접근성 같은 기본 규칙 | [01-colors.md](foundations/01-colors.md) |
 | `tokens/` | 실제 화면 제작에서 가져다 쓸 수 있는 CSS 변수 | [valley-reference-tokens.css](tokens/valley-reference-tokens.css) |
 | `components/` | 버튼, 카드, 배지, 탭, 데이터 표시, 상태 UI 규칙 | [README.md](components/README.md) |
+| `Icon/` | 화면에서 사용할 아이콘 |  | 
 | `patterns/` | 투자분석 화면에서 반복될 정보 구조와 화면 패턴 | [portfolio-aware-event-triage.md](patterns/portfolio-aware-event-triage.md) |
 | `checklists/` | 디자인/구현 전 검수 체크리스트 | [mobile-design-qa.md](checklists/mobile-design-qa.md) |
 
@@ -20,6 +21,7 @@
 2. 화면의 정보 구조는 `patterns/portfolio-aware-event-triage.md`를 우선 따른다.
 3. 컴포넌트 형태는 `components/` 문서의 역할과 상태 규칙을 참고한다.
 4. 디자인 또는 구현 후 `checklists/mobile-design-qa.md`로 과장된 투자 판단 표현, 개인정보 노출, 상태 누락을 확인한다.
+5. Icon/Svg는 원본 파일이므로 수정을 금지한다.
 
 ## Valley 스타일에서 확인한 큰 방향
 
