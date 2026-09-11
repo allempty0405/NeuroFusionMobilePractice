@@ -2,38 +2,24 @@
 
 ## Surface Hierarchy
 
-| 레벨 | 역할 | 권장 토큰 |
+| Level | Token | 사용 |
 |---|---|---|
-| Page | 전체 배경 | `--nf-surface-dashboard-mobile` |
-| Primary Card | Relationship + Outcome 요약 | `--nf-surface-card` |
-| Secondary Card | Event / Asset 정보 | `--nf-surface-card` |
-| Evidence Card | 근거와 출처 | `--nf-surface-card-muted` |
-| Feedback Surface | Loading, Empty, Error | 상태별 semantic surface |
+| Page | `--nf-surface-page` | 전체 배경 |
+| Raised | `--nf-surface-raised` | Bottom Sheet, 필요한 summary |
+| Muted | `--nf-surface-muted` | Input, grouped information |
+| Selected | `--nf-surface-selected` | 선택 보조 표현 |
+| Scrim | `--nf-scrim` | Sheet 뒤 context |
 
-## 카드 사용 원칙
+## Mobile Portfolio 원칙
 
-- 카드 안에 카드를 과도하게 중첩하지 않는다.
-- 첫 화면에서는 핵심 판단 카드 수를 줄인다.
-- 정보가 같은 중요도라면 같은 surface level을 사용한다.
-- Relationship, Outcome, Event Identity가 서로 경쟁하지 않게 배치한다.
-
-## Portfolio-aware Event Triage 요약 카드
-
-포함 권장:
-
-1. Mock 또는 Data State 표시
-2. Portfolio / Watchlist / Related-only 관계
-3. Outcome
-4. 짧은 이유
-5. 핵심 관련 Asset
-
-포함 금지:
-
-- 실제 보유 금액
-- 실제 수익률
-- 매수/매도 암시
-- 근거 없는 중요도 점수
+- Holding/Portfolio 반복 목록은 Card가 아닌 full-width row
+- Section은 spacing과 낮은 divider로 구분
+- 대표 Financial Hero에만 제한적으로 surface 허용
+- 카드 안에 카드 중첩 금지
+- Shadow는 Sheet/Popover처럼 실제 elevation이 있는 경우만 사용
+- 모든 정보를 chip이나 badge로 만들지 않음
+- Page와 raised surface의 차이가 theme 양쪽에서 확인되어야 함
 
 ## Dense Data
 
-차트, 긴 표, 전문 원문, transcript는 모바일 첫 화면에 넣지 않고 확장 영역 또는 Web Handoff로 분리합니다.
+Mobile 첫 화면에는 긴 표, 세부 재무표, 큰 차트와 반복 Card를 동시에 배치하지 않습니다. 숫자 비교에는 일정한 column과 tabular figures를 우선합니다.
