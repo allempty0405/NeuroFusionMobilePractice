@@ -1,42 +1,44 @@
-# Badges, Tabs, Filters
+# Tabs, Filters & Choice Chips
+
+## Global Section Navigation
+
+동등한 상위 영역 이동에 사용합니다.
+
+- 모아보기
+- 포트폴리오
+- 관심종목
+
+Portfolio와 Watchlist의 데이터 의미는 섞지 않습니다. 선택 상태는 text contrast와 Green underline을 함께 사용합니다.
+
+## Dimension Tabs
+
+같은 데이터의 집계 기준을 바꿉니다.
+
+- 자산
+- 종목
+- 국가
+- 섹터
+
+## Filter Tabs
+
+목록의 대상을 좁힙니다.
+
+- 전체, 주식, ETF, 인덱스, 원자재, 외환, 채권, 암호화폐
+
+Navigation과 Filter를 같은 interaction으로 취급하지 않습니다.
+
+## Choice Chip
+
+짧은 단일 선택에 사용합니다. Currency Variant A가 이 pattern을 사용합니다.
+
+- Selected: Primary fill + strong inverse text
+- Unselected: Muted surface + body text
+- Disabled: 공통 disabled token
+- 44px touch target
+- 긴 label이나 4개 이상 통화에서는 overflow 검증
+
+Currency는 Asset Filter가 아닙니다. 선택된 Scope 전체 금액의 reporting currency를 변경합니다.
 
 ## Badge
 
-Badge는 사용자가 “이 정보가 무엇인지” 빠르게 분류하도록 돕습니다.
-
-| Badge 유형 | 예 | 색상 원칙 |
-|---|---|---|
-| Relationship | `보유`, `관심`, `관련` | 보유와 관심을 색상/문구 모두로 구분 |
-| Outcome | `추가 확인 필요`, `즉시 확인 낮음`, `정보 부족` | 투자 판단처럼 보이지 않게 중립적 문구 |
-| Event Type | `실적발표`, `내부자거래`, `뉴스` | 유형 구분용. 중요도와 혼동 금지 |
-| Data State | `오래된 데이터`, `근거 부족`, `권한 제한` | 상태와 원인 설명 |
-
-## Tabs
-
-탭은 같은 객체의 하위 정보 전환에 사용합니다.
-
-권장 사용:
-
-- `요약`
-- `근거`
-- `관련 자산`
-- `Web 이동`
-
-주의:
-
-- Portfolio와 Watchlist를 한 탭 안에서 섞지 않는다.
-- Event Type Filter와 화면 Navigation을 혼동하지 않는다.
-- 탭 상태가 URL 또는 화면 복귀에서 유지되는지는 별도 검증이 필요하다.
-
-## Filters
-
-필터는 사용자가 Event를 좁혀 보는 용도입니다.
-
-필터 상태는 다음이 보존되어야 합니다.
-
-- 선택된 필터
-- 검색어
-- 스크롤 위치
-- 선택된 Event
-
-현재 Valley Web Evidence에서 일부 필터/선택 상태는 보존 여부가 미검증 또는 부분 검증이므로, 모바일 구현에서도 자동으로 보존된다고 가정하지 않습니다.
+상태나 짧은 분류에만 사용합니다. 숫자, CTA, 모든 metadata를 badge로 만들지 않습니다.
