@@ -50,3 +50,10 @@ Portfolio와 Watchlist는 같은 객체가 아닙니다.
 - 오늘 확인
 - 원금 대비 label
 - 정상 화면의 15분 전/LIVE badge
+
+
+## Visual Review Holds
+
+- F-06 Text Button: 최초 hit area 44×44px. 실제 시안에서 위계와 밀도를 검토
+- F-03: 360px에서 비축약 금액 overflow를 실제 디자인으로 비교
+- 위 두 항목은 Wireframe 진행을 막지 않지만 시안 확인 전 최종값을 축소하거나 자동 확정하지 않음
