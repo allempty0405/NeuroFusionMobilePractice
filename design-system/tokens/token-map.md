@@ -1,40 +1,39 @@
 # Token Map
 
-이 문서는 Valley 스타일 변수와 NeuroFusion 모바일 디자인 토큰의 대응 관계를 정리합니다.
+## 계층
 
-## Naming
-
-| Valley 계열 | NeuroFusion 토큰 | 의미 |
+| 계층 | 예 | 원칙 |
 |---|---|---|
-| `--definitive-*` | `--nf-*` primitive | 원시 색상 |
-| `--semantic-*` | `--nf-semantic-*` | 의미 색상 |
-| `--global-*` | `--nf-surface-*` | 화면 표면 |
-| `--text-*` | `--nf-text-*` | 텍스트 역할 |
-| `--border-*` | `--nf-border-*` | 경계 역할 |
-| `--radius-*` | `--nf-radius-*` | 형태 |
-| `--shadow-card` | `--nf-shadow-card` | 카드 깊이 |
+| Primitive | `--nf-zinc-900` | 화면에서 직접 사용하지 않음 |
+| Semantic | `--nf-surface-page` | Light/Dark에서 동일한 역할명 |
+| Component | `--nf-control-disabled-bg` | 특정 state에 사용 |
 
-## 핵심 매핑
+## Theme
 
-| 사용 목적 | Valley 참고 | NeuroFusion 토큰 |
-|---|---|---|
-| 모바일 배경 | `--global-dashboard-mobile` | `--nf-surface-dashboard-mobile` |
-| 데스크톱 배경 | `--global-dashboard-desktop` | `--nf-surface-dashboard-desktop` |
-| 기본 카드 | `--global-card-10` | `--nf-surface-card` |
-| 보조 카드 | `--global-card-20` | `--nf-surface-card-muted` |
-| 기본 텍스트 | `--text-basic-default-120` | `--nf-text-strong` |
-| 본문 텍스트 | `--text-basic-body-10` | `--nf-text-body` |
-| 보조 텍스트 | `--text-basic-default-60` | `--nf-text-muted` |
-| 기본 경계 | `--border-basic-default-40` | `--nf-border-default` |
-| Focus 경계 | `--border-primary-focus-10` | `--nf-border-focus` |
-| Primary | `--semantic-primary-*` | `--nf-semantic-primary-*` |
-| Warning | `--semantic-warning-*` | `--nf-semantic-warning-*` |
-| Error | `--semantic-error-*` | `--nf-semantic-error-*` |
-| Info | `--semantic-info-*` | `--nf-semantic-info-*` |
+- `:root, [data-theme="light"]`: Valley Web Light reference
+- `[data-theme="dark"]`: Valley Mobile Dark screenshot reference
+- OS theme 연동 시 `prefers-color-scheme`을 사용할 수 있으나 앱의 theme state가 있으면 명시적 `data-theme`이 우선합니다.
+
+## 핵심 Semantic
+
+| 목적 | Token |
+|---|---|
+| Page | `--nf-surface-page` |
+| Raised surface | `--nf-surface-raised` |
+| Muted surface | `--nf-surface-muted` |
+| Input | `--nf-surface-input` |
+| Strong text | `--nf-text-strong` |
+| Body | `--nf-text-body` |
+| Muted | `--nf-text-muted` |
+| Divider | `--nf-border-subtle` |
+| Gain/Loss/Flat | `--nf-financial-*` |
+| Disabled | `--nf-control-disabled-*` |
+| Scrim | `--nf-scrim` |
 
 ## 사용 우선순위
 
-1. 화면 제작에서는 `--nf-*` 토큰을 사용한다.
-2. Valley 원본 변수명은 참고 문서에서만 언급한다.
-3. 실제 코드에서 Valley 원본 변수명을 직접 사용하지 않는다.
-4. 필요한 토큰이 없으면 새 토큰을 만들되 `source-and-boundary.md`에 이유를 남긴다.
+1. Component token
+2. Semantic token
+3. Primitive는 token 정의 내부에서만 사용
+4. 새 token은 source와 사용 상황을 문서화
+5. Event Triage 전용 token은 해당 pattern 안에 한정
