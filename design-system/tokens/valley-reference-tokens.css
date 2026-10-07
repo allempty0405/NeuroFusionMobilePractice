@@ -75,6 +75,10 @@
   --nf-mobile-component-padding: 1rem;
   --nf-min-touch-target: 44px;
   --nf-shadow-floating: 0 3px 8px rgb(0 0 0 / 18%);
+
+  /* Portfolio component tokens validated in PHASE 6 prototype. */
+  --nf-allocation-bar-fill: var(--nf-border-focus);
+  --nf-allocation-bar-track: var(--nf-border-default);
 }
 
 /* Valley Web Light reference. */
