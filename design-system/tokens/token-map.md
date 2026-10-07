@@ -6,7 +6,7 @@
 |---|---|---|
 | Primitive | `--nf-zinc-900` | 화면에서 직접 사용하지 않음 |
 | Semantic | `--nf-surface-page` | Light/Dark에서 동일한 역할명 |
-| Component | `--nf-control-disabled-bg` | 특정 state에 사용 |
+| Component | `--nf-control-disabled-bg`, `--nf-allocation-bar-fill` | 특정 component/state에 사용 |
 
 ## Theme
 
@@ -30,6 +30,15 @@
 | Disabled | `--nf-control-disabled-*` |
 | Scrim | `--nf-scrim` |
 
+## Mobile Portfolio Component Tokens
+
+| 목적 | Token | Mapping Principle |
+|---|---|---|
+| Allocation bar fill | `--nf-allocation-bar-fill` | selected/focus green semantic 계열 재사용 |
+| Allocation bar track | `--nf-allocation-bar-track` | theme의 default border/surface neutral 재사용 |
+
+새 primitive를 만들지 않고 기존 theme semantic 값에 연결합니다.
+
 ## 사용 우선순위
 
 1. Component token
@@ -37,7 +46,6 @@
 3. Primitive는 token 정의 내부에서만 사용
 4. 새 token은 source와 사용 상황을 문서화
 5. Event Triage 전용 token은 해당 pattern 안에 한정
-
 
 ## Compatibility Alias 정책
 
