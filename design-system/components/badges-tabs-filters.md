@@ -39,6 +39,31 @@ Navigation과 Filter를 같은 interaction으로 취급하지 않습니다.
 
 Currency는 Asset Filter가 아닙니다. 선택된 Scope 전체 금액의 reporting currency를 변경합니다.
 
+### Dark Mode Variant — Mobile Portfolio Allocation
+
+**STATUS:** VALIDATED_IN_PHASE_6E_R5_PROTOTYPE
+
+Mobile Portfolio의 `투자 비중` Lens처럼 짧은 4-way single-select에 Choice Chip을 사용할 수 있습니다.
+
+- Touch target: 최소 `44px`
+- Visual pill height: `32px`
+- Radius: `--nf-radius-pill`
+- Selected: `--nf-green-500` fill + `--nf-white` text
+- Unselected: `--nf-zinc-600` fill + `--nf-zinc-300` text
+- Selected state는 `aria-selected=true`와 시각 상태를 함께 사용
+- Disabled는 기존 공통 disabled token을 사용
+- 320px에서도 4개 short label이 겹치지 않는지 검수
+- 긴 label / 많은 option에서는 Choice Chip을 강제하지 않음
+
+현재 검증 사용 예:
+
+```text
+투자 비중
+[자산별] [종목별] [국가별] [섹터별]
+```
+
+이 Dark Mode variant는 **Mobile Portfolio에서 검증된 Choice Chip 표현**이며 모든 Valley selected control을 green fill로 통일하는 전역 규칙이 아닙니다.
+
 ## Badge
 
 상태나 짧은 분류에만 사용합니다. 숫자, CTA, 모든 metadata를 badge로 만들지 않습니다.
