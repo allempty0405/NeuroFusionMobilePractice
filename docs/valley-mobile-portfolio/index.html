@@ -1,0 +1,1377 @@
+<!doctype html><html lang="ko" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Valley AI Mobile Portfolio — Phase 6E R9 Product Refinement</title><style>
+
+:root {
+  --nf-white:#fff;--nf-black:#000;
+  --nf-zinc-50:#fafafa;--nf-zinc-100:#f4f4f5;--nf-zinc-200:#e4e4e7;--nf-zinc-300:#d4d4d8;--nf-zinc-400:#a1a1aa;--nf-zinc-500:#71717a;--nf-zinc-600:#52525b;--nf-zinc-700:#3f3f46;--nf-zinc-800:#27272a;--nf-zinc-900:#18181b;--nf-zinc-950:#09090b;
+  --nf-green-400:#4ade80;--nf-green-500:#22c55e;--nf-green-600:#16a34a;--nf-red-400:#f87171;--nf-red-500:#ef4444;--nf-orange-500:#f97316;--nf-blue-500:#3b82f6;
+  --nf-font-sans:"Pretendard Variable",Pretendard,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --nf-text-xs:.75rem;--nf-text-sm:.875rem;--nf-text-base:1rem;--nf-text-lg:1.125rem;--nf-text-xl:1.25rem;--nf-text-2xl:1.5rem;--nf-text-financial-hero:1.75rem;
+  --nf-leading-xs:1rem;--nf-leading-sm:1.25rem;--nf-leading-base:1.5rem;--nf-leading-lg:1.75rem;--nf-leading-2xl:2rem;--nf-leading-financial-hero:2.25rem;
+  --nf-weight-normal:400;--nf-weight-medium:500;--nf-weight-semibold:600;--nf-weight-bold:700;
+  --nf-space-1:.25rem;--nf-space-2:.5rem;--nf-space-3:.75rem;--nf-space-4:1rem;--nf-space-5:1.25rem;--nf-space-6:1.5rem;--nf-space-8:2rem;
+  --nf-radius-sm:.25rem;--nf-radius-md:.375rem;--nf-radius-lg:.5rem;--nf-radius-xl:.75rem;--nf-radius-2xl:1rem;--nf-radius-sheet:1.5rem;--nf-radius-pill:999px;
+  --nf-min-touch-target:44px;--nf-shadow-floating:0 3px 8px rgb(0 0 0 / 18%);
+}
+[data-theme="dark"]{
+  color-scheme:dark;
+  --nf-surface-page:var(--nf-zinc-900);--nf-surface-raised:var(--nf-zinc-800);--nf-surface-muted:var(--nf-zinc-700);--nf-surface-input:var(--nf-zinc-800);--nf-surface-selected:#1e2520;
+  --nf-text-title:var(--nf-zinc-100);--nf-text-strong:var(--nf-zinc-200);--nf-text-body:var(--nf-zinc-300);--nf-text-muted:var(--nf-zinc-500);--nf-text-disabled:var(--nf-zinc-600);
+  --nf-border-subtle:var(--nf-zinc-800);--nf-border-default:var(--nf-zinc-700);--nf-border-focus:var(--nf-green-500);
+  --nf-control-disabled-bg:var(--nf-zinc-800);--nf-control-disabled-text:var(--nf-zinc-600);--nf-control-disabled-icon:var(--nf-zinc-600);
+  --nf-financial-gain:var(--nf-green-400);--nf-financial-loss:var(--nf-red-400);--nf-financial-flat:var(--nf-zinc-200);--nf-scrim:rgb(0 0 0 / 68%);
+  --nf-allocation-bar-fill:var(--nf-border-focus);--nf-allocation-bar-track:var(--nf-border-default);--nf-state-warning-surface:var(--nf-surface-raised);--nf-state-error-surface:var(--nf-surface-raised);--nf-state-muted-surface:var(--nf-surface-raised);--nf-border-selected:var(--nf-border-focus);--nf-shadow-sheet:var(--nf-shadow-floating);
+}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--nf-zinc-950);font-family:var(--nf-font-sans);color:var(--nf-text-body)}body{display:flex;justify-content:center}.app-shell{width:100%;max-width:430px;min-height:100vh;background:var(--nf-surface-page);position:relative;overflow-x:hidden}.prototype-note{height:26px;display:flex;align-items:center;justify-content:center;background:var(--nf-zinc-950);color:var(--nf-text-muted);font-size:var(--nf-text-xs);letter-spacing:.02em;border-bottom:1px solid var(--nf-border-subtle)}main{min-height:calc(100vh - 26px);outline:none}.page{padding-bottom:48px}.page-pad{padding-left:16px;padding-right:16px}.root-header{padding:20px 16px 0}.screen-title{font-size:var(--nf-text-2xl);line-height:32px;font-weight:700;color:var(--nf-text-title);margin:0 0 16px}.detail-header{height:60px;padding:8px 8px 8px 6px;display:grid;grid-template-columns:44px 1fr 44px;align-items:center;border-bottom:1px solid var(--nf-border-subtle);position:sticky;top:0;background:var(--nf-surface-page);z-index:20}.detail-header h1{font-size:var(--nf-text-lg);line-height:28px;font-weight:600;color:var(--nf-text-title);margin:0;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.icon-button{width:44px;height:44px;border:0;background:transparent;color:var(--nf-text-strong);display:inline-flex;align-items:center;justify-content:center;border-radius:var(--nf-radius-lg);cursor:pointer}.icon-button img{width:24px;height:24px;filter:brightness(0) invert(1);opacity:.9}.icon-button:focus-visible,.btn:focus-visible,.tab:focus-visible,.scope-trigger:focus-visible,.row-button:focus-visible,.lens:focus-visible,.filter-tab:focus-visible,.text-action:focus-visible,select:focus-visible,input:focus-visible,.disclosure:focus-visible{outline:2px solid var(--nf-border-focus);outline-offset:2px}.top-tabs{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--nf-border-subtle);padding:0 8px}.tab{min-height:48px;background:transparent;border:0;color:var(--nf-text-muted);font-size:var(--nf-text-sm);font-weight:500;position:relative;cursor:pointer}.tab[aria-selected="true"]{color:var(--nf-text-title);font-weight:600}.tab[aria-selected="true"]::after{content:"";position:absolute;left:16px;right:16px;bottom:-1px;height:2px;background:var(--nf-green-500);border-radius:2px}.section{padding:48px 16px 0}.section.summary-secondary{padding-top:24px}.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}.section-title{font-size:var(--nf-text-lg);line-height:28px;font-weight:600;color:var(--nf-text-title);margin:0}.section-caption{font-size:var(--nf-text-xs);line-height:16px;color:var(--nf-text-muted)}.scope-block{padding:14px 16px 0}.scope-trigger{width:100%;border:0;border-bottom:1px solid var(--nf-border-subtle);background:transparent;color:var(--nf-text-strong);padding:7px 0 10px;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;min-height:52px;text-align:left;cursor:pointer}.scope-label{font-size:var(--nf-text-xs);color:var(--nf-text-body);display:block;margin-bottom:4px}.scope-summary{font-size:var(--nf-text-sm);line-height:20px;font-weight:600;color:var(--nf-text-strong);display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.scope-trigger img{width:18px;height:18px;filter:brightness(0) invert(1);opacity:.7}.trust-notice{margin:16px 16px 0;border-left:3px solid var(--nf-orange-500);background:var(--nf-state-warning-surface);padding:12px 12px 12px 14px;border-radius:0 8px 8px 0}.trust-notice.stale{border-left-color:var(--nf-zinc-500);background:var(--nf-state-muted-surface)}.trust-notice.disconnect{border-left-color:var(--nf-red-400);background:var(--nf-state-error-surface)}.trust-title{font-size:var(--nf-text-sm);font-weight:600;color:var(--nf-text-strong);margin-bottom:3px}.trust-copy{font-size:var(--nf-text-xs);line-height:18px;color:var(--nf-text-body)}.summary-group{padding:0}.hero-row{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.eyebrow{font-size:var(--nf-text-xs);line-height:16px;color:var(--nf-text-muted);margin-bottom:6px}.hero-value{font-size:var(--nf-text-financial-hero);line-height:36px;font-weight:600;color:var(--nf-text-title);font-variant-numeric:tabular-nums;letter-spacing:-.02em;overflow-wrap:normal;white-space:nowrap}.currency-select{height:44px;min-width:78px;border:1px solid var(--nf-border-default);border-radius:var(--nf-radius-lg);background:var(--nf-surface-input);color:var(--nf-text-strong);padding:0 28px 0 10px;font-size:var(--nf-text-sm)}.metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:22px;padding-top:20px;border-top:1px solid var(--nf-border-subtle)}.metric-label{font-size:var(--nf-text-xs);color:var(--nf-text-muted);margin-bottom:6px}.metric-value{font-size:var(--nf-text-base);line-height:24px;font-weight:500;color:var(--nf-text-strong);font-variant-numeric:tabular-nums}.metric-sub{font-size:var(--nf-text-xs);line-height:16px;margin-top:2px}.gain{color:var(--nf-financial-gain)!important}.loss{color:var(--nf-financial-loss)!important}.flat{color:var(--nf-financial-flat)!important}.missing{color:var(--nf-text-muted)!important}.lens-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-bottom:1px solid var(--nf-border-subtle);margin-bottom:18px}.lens{height:44px;border:0;background:transparent;color:var(--nf-text-muted);font-size:var(--nf-text-sm);position:relative;cursor:pointer;padding:0 6px;white-space:nowrap}.lens[aria-selected="true"]{color:var(--nf-text-title);font-weight:600}.lens[aria-selected="true"]::after{content:"";position:absolute;left:8px;right:8px;bottom:-1px;height:2px;background:var(--nf-green-500)}.allocation-list{display:grid;gap:12px}.allocation-line{display:grid;gap:5px}.allocation-meta{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.allocation-name{font-size:var(--nf-text-sm);color:var(--nf-text-strong);line-height:20px;overflow-wrap:anywhere}.allocation-value{font-size:var(--nf-text-sm);font-weight:600;color:var(--nf-text-strong);font-variant-numeric:tabular-nums;white-space:nowrap}.bar-track{height:5px;background:var(--nf-allocation-bar-track);border-radius:var(--nf-radius-pill);overflow:hidden}.bar-fill{height:100%;background:var(--nf-allocation-bar-fill);border-radius:inherit;min-width:2px}.section-footer{padding-top:14px;display:flex;justify-content:flex-end}.text-action{min-height:44px;border:0;background:transparent;color:var(--nf-green-400);font-size:var(--nf-text-sm);font-weight:600;padding:0 0 0 12px;cursor:pointer}.list{border-top:1px solid var(--nf-border-subtle)}.row-button{width:100%;border:0;border-bottom:1px solid var(--nf-border-subtle);background:transparent;color:inherit;text-align:left;padding:14px 0;min-height:72px;cursor:pointer}.holding-row{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:12px;row-gap:4px;align-items:start}.row-identity{font-size:var(--nf-text-base);line-height:22px;font-weight:500;color:var(--nf-text-title);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.row-meta{font-size:var(--nf-text-xs);line-height:18px;color:var(--nf-text-muted);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.row-value{font-size:var(--nf-text-base);line-height:22px;font-weight:500;color:var(--nf-text-strong);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}.row-outcome{font-size:var(--nf-text-xs);line-height:18px;text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}.update-row{padding:14px 0;border-bottom:1px solid var(--nf-border-subtle);min-height:88px}.update-top{display:flex;align-items:center;gap:8px;margin-bottom:6px}.type-badge{font-size:var(--nf-text-xs);line-height:18px;padding:0 6px;border:1px solid var(--nf-border-default);border-radius:var(--nf-radius-sm);color:var(--nf-text-body);background:transparent;white-space:nowrap}.asset-tag{font-size:var(--nf-text-xs);color:var(--nf-text-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.update-title{font-size:var(--nf-text-sm);line-height:20px;color:var(--nf-text-strong);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.update-meta{font-size:var(--nf-text-xs);line-height:18px;color:var(--nf-text-muted);margin-top:5px}.update-button{width:100%;text-align:left;background:transparent;border:0;color:inherit;padding:0;cursor:pointer}.btn{min-height:48px;border-radius:var(--nf-radius-lg);border:1px solid transparent;font-size:var(--nf-text-base);font-weight:600;padding:0 16px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:7px}.btn-primary{background:var(--nf-green-500);color:var(--nf-zinc-950)}.btn-secondary{background:var(--nf-surface-raised);border-color:var(--nf-border-default);color:var(--nf-text-strong)}.btn:disabled{background:var(--nf-control-disabled-bg);color:var(--nf-control-disabled-text);cursor:not-allowed}.btn-icon{width:20px;height:20px;filter:brightness(0);opacity:.8}.btn-secondary .btn-icon{filter:brightness(0) invert(1)}.full-cta{width:100%}.action-row{padding:24px 16px 0}.comparison-tabs,.filters{display:flex;gap:6px;margin-bottom:14px}.filter-tab{min-height:44px;border-radius:var(--nf-radius-pill);border:1px solid var(--nf-border-default);background:transparent;color:var(--nf-text-muted);padding:0 14px;font-size:var(--nf-text-sm);white-space:nowrap;cursor:pointer}.filter-tab[aria-selected="true"]{background:var(--nf-surface-selected);border-color:var(--nf-border-selected);color:var(--nf-text-title)}.filter-scroll{overflow-x:auto;scrollbar-width:none;padding-bottom:2px}.filter-scroll::-webkit-scrollbar{display:none}.portfolio-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px}.portfolio-row .row-meta{white-space:normal}.detail-body{padding:24px 16px 48px}.asset-heading{margin-bottom:28px}.asset-name{font-size:var(--nf-text-2xl);line-height:32px;font-weight:700;color:var(--nf-text-title);margin:0}.asset-sub{font-size:var(--nf-text-sm);color:var(--nf-text-muted);margin-top:4px}.detail-hero{font-size:var(--nf-text-financial-hero);line-height:36px;color:var(--nf-text-title);font-weight:600;font-variant-numeric:tabular-nums}.metric-list{margin-top:24px;border-top:1px solid var(--nf-border-subtle)}.metric-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:15px 0;border-bottom:1px solid var(--nf-border-subtle)}.metric-row dt{font-size:var(--nf-text-sm);color:var(--nf-text-muted)}.metric-row dd{margin:0;font-size:var(--nf-text-sm);color:var(--nf-text-strong);font-weight:500;text-align:right;font-variant-numeric:tabular-nums}.disclosure{margin-top:28px;width:100%;height:48px;border:0;border-top:1px solid var(--nf-border-subtle);border-bottom:1px solid var(--nf-border-subtle);background:transparent;color:var(--nf-text-strong);display:flex;align-items:center;gap:10px;font-size:var(--nf-text-sm);font-weight:600;cursor:pointer;padding:0}.disclosure .check-circle{width:22px;height:22px;border:1px solid var(--nf-border-default);border-radius:50%;display:flex;align-items:center;justify-content:center}.disclosure[aria-expanded="true"] .check-circle{background:var(--nf-surface-selected);border-color:var(--nf-green-500);color:var(--nf-green-400)}.check-circle img{width:18px;height:18px;filter:brightness(0) saturate(100%) invert(73%) sepia(58%) saturate(644%) hue-rotate(82deg) brightness(96%) contrast(89%)}.breakdown{border-bottom:1px solid var(--nf-border-subtle)}.breakdown-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:5px 12px;padding:14px 0;border-bottom:1px solid var(--nf-border-subtle)}.breakdown-row:last-child{border-bottom:0}.breakdown-title{font-size:var(--nf-text-base);font-weight:500;color:var(--nf-text-title)}.breakdown-meta{font-size:var(--nf-text-xs);color:var(--nf-text-muted)}.edit-action{min-width:44px;min-height:44px;border:0;background:transparent;color:var(--nf-green-400);font-size:var(--nf-text-sm);font-weight:600;cursor:pointer}.page-context{padding:20px 16px 0}.context-title{font-size:var(--nf-text-xl);line-height:28px;font-weight:600;color:var(--nf-text-title);margin:0}.state-panel{margin:24px 16px;border-top:1px solid var(--nf-border-subtle);border-bottom:1px solid var(--nf-border-subtle);padding:28px 0;text-align:center}.state-title{font-size:var(--nf-text-lg);line-height:28px;font-weight:600;color:var(--nf-text-title);margin-bottom:6px}.state-copy{font-size:var(--nf-text-sm);line-height:20px;color:var(--nf-text-muted);margin:0 auto 20px;max-width:280px}.module-state{padding:20px 0;border-top:1px solid var(--nf-border-subtle);border-bottom:1px solid var(--nf-border-subtle)}.module-state strong{display:block;color:var(--nf-text-strong);font-size:var(--nf-text-sm);margin-bottom:4px}.module-state span{font-size:var(--nf-text-xs);color:var(--nf-text-muted)}.skeleton{background:linear-gradient(90deg,var(--nf-zinc-800),var(--nf-zinc-700),var(--nf-zinc-800));background-size:200% 100%;animation:pulse 1.4s infinite;border-radius:var(--nf-radius-md)}.sk-hero{height:36px;width:72%;margin:8px 0}.sk-line{height:18px;width:48%;margin:10px 0}.sk-row{height:72px;margin:0 16px;border-bottom:1px solid var(--nf-border-subtle)}@keyframes pulse{0%{background-position:100% 0}100%{background-position:-100% 0}}.sheet-layer{position:fixed;inset:0;z-index:100;display:flex;align-items:flex-end;justify-content:center;background:var(--nf-scrim)}.sheet{width:min(430px,100%);max-height:72vh;background:var(--nf-surface-raised);border-radius:var(--nf-radius-sheet) var(--nf-radius-sheet) 0 0;display:flex;flex-direction:column;box-shadow:var(--nf-shadow-sheet)}.sheet-handle{width:36px;height:4px;background:var(--nf-zinc-600);border-radius:var(--nf-radius-sm);margin:10px auto 4px}.sheet-head{display:flex;align-items:center;justify-content:space-between;padding:8px 12px 8px 20px}.sheet-title{font-size:var(--nf-text-xl);line-height:28px;font-weight:600;color:var(--nf-text-title)}.sheet-content{overflow-y:auto;padding:0 16px}.choice-row{min-height:58px;width:100%;display:grid;grid-template-columns:1fr 36px;align-items:center;border:0;border-bottom:1px solid var(--nf-border-subtle);background:transparent;color:inherit;text-align:left;cursor:pointer}.choice-title{display:block;font-size:var(--nf-text-base);color:var(--nf-text-strong);font-weight:500}.choice-meta{display:block;font-size:var(--nf-text-xs);color:var(--nf-text-muted);margin-top:2px}.choice-control{width:24px;height:24px;border:1px solid var(--nf-border-default);border-radius:50%;display:flex;align-items:center;justify-content:center;color:transparent}.choice-row[aria-checked="true"] .choice-control{border-color:var(--nf-green-500);background:var(--nf-surface-selected);color:var(--nf-green-400)}.choice-control img{width:18px;height:18px;filter:brightness(0) saturate(100%) invert(73%) sepia(58%) saturate(644%) hue-rotate(82deg) brightness(96%) contrast(89%)}.sheet-guidance{font-size:var(--nf-text-xs);color:var(--nf-red-400);padding:12px 4px 0}.sheet-foot{padding:14px 16px max(16px,env(safe-area-inset-bottom));border-top:1px solid var(--nf-border-subtle);background:var(--nf-surface-raised)}.form{display:grid;gap:20px}.field{display:grid;gap:8px}.field label{font-size:var(--nf-text-sm);color:var(--nf-text-body);font-weight:500}.field input{height:48px;width:100%;border:1px solid var(--nf-border-default);border-radius:var(--nf-radius-lg);background:var(--nf-surface-input);color:var(--nf-text-title);padding:0 13px;font-size:var(--nf-text-base);outline:none}.field input:focus{border-color:var(--nf-border-focus)}.field-help{font-size:var(--nf-text-xs);line-height:18px;color:var(--nf-text-muted)}.field-error{font-size:var(--nf-text-xs);color:var(--nf-red-400);min-height:18px}.search-box{position:relative}.search-box img{position:absolute;left:12px;top:12px;width:24px;height:24px;filter:brightness(0) invert(1);opacity:.55}.search-box input{padding-left:44px}.search-results{margin-top:14px;border-top:1px solid var(--nf-border-subtle)}.search-result{min-height:64px;border:0;border-bottom:1px solid var(--nf-border-subtle);background:transparent;color:inherit;text-align:left;width:100%;padding:11px 0;cursor:pointer}.search-result strong{display:block;color:var(--nf-text-strong);font-size:var(--nf-text-base)}.search-result span{font-size:var(--nf-text-xs);color:var(--nf-text-muted)}.selected-asset{padding:12px;border:1px solid var(--nf-border-selected);background:var(--nf-surface-selected);border-radius:var(--nf-radius-lg);margin-top:12px}.sticky-cta{position:sticky;bottom:0;padding:12px 16px max(12px,env(safe-area-inset-bottom));background:var(--nf-surface-page);z-index:10}.debug-panel{position:fixed;right:8px;bottom:8px;z-index:200;background:var(--nf-zinc-950);border:1px solid var(--nf-border-default);border-radius:var(--nf-radius-xl);padding:8px;max-width:220px}.debug-panel select{width:100%;height:34px;background:var(--nf-zinc-800);color:var(--nf-text-body);border:1px solid var(--nf-border-default);border-radius:var(--nf-radius-md)}.debug-title{font-size:var(--nf-text-xs);color:var(--nf-text-muted);margin-bottom:5px}.watchlist-placeholder{padding:32px 16px}.proto-only{font-size:var(--nf-text-xs);color:var(--nf-text-muted);padding:10px 12px;background:var(--nf-surface-raised);border-radius:var(--nf-radius-lg);margin-bottom:18px}
+@media (max-width:340px){.hero-value{font-size:var(--nf-text-2xl);line-height:32px}.section{padding-top:48px}.metric-grid{gap:12px}.row-identity{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}.holding-row{column-gap:8px}.row-outcome{max-width:142px;white-space:normal}.portfolio-row{column-gap:8px}.lens{font-size:var(--nf-text-xs);padding:0 3px}.tab{font-size:var(--nf-text-sm)}.screen-title{font-size:var(--nf-text-xl)}.detail-body{padding-left:16px;padding-right:16px}}
+@media (prefers-reduced-motion:reduce),(update:slow){*,:before,:after{scroll-behavior:auto!important;transition-duration:1ms!important;animation-duration:1ms!important;animation-iteration-count:1!important}}
+
+/* PHASE 6D approved targeted prototype revision. GitHub DS remains frozen. */
+.update-category{font-size:var(--nf-text-xs);font-weight:600;color:var(--nf-green-400)}
+.update-sep{font-size:var(--nf-text-xs);color:var(--nf-text-muted)}
+.update-top{display:flex;align-items:center;gap:5px;margin-bottom:5px}
+.detail-context{font-size:var(--nf-text-xs);line-height:18px;color:var(--nf-text-body);margin-bottom:8px}
+
+
+.detail-actions{padding-top:20px;display:flex;justify-content:flex-end}
+.detail-edit{padding:0 2px}
+.update-detail-kicker{display:flex;gap:5px;align-items:center;color:var(--nf-text-body);font-size:var(--nf-text-sm);margin-bottom:8px}
+.update-detail-title{font-size:var(--nf-text-xl);line-height:30px}
+.update-detail-meta{margin-top:10px}
+.update-detail-content{padding-top:28px}
+.update-detail-content p{font-size:var(--nf-text-sm);line-height:22px;color:var(--nf-text-body);margin:0}
+.update-detail-content .section-caption{margin-top:12px}
+@media(max-width:340px){.scope-summary{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}.scope-trigger{min-height:56px}.allocation-list{gap:10px}}
+
+
+/* PHASE 6E — user-directed visual development. Prototype-local only; GitHub DS frozen. */
+[data-theme="dark"]{
+  --nf-surface-selected:var(--nf-zinc-800);
+  --nf-border-focus:var(--nf-zinc-300);
+  --nf-border-selected:var(--nf-zinc-600);
+  --nf-financial-gain:#4ade80;
+  --nf-financial-loss:#ef4444;
+  --nf-financial-flat:var(--nf-zinc-200);
+  --phase6e-card-surface:#242427;
+  --phase6e-card-border:#3f3f46;
+  --phase6e-neutral-selected:#323238;
+  --phase6e-neutral-control:#e4e4e7;
+}
+/* Neutral interaction system. Selected root/dimension tabs and text/category accents remain approved exceptions. */
+.icon-button:focus-visible,.btn:focus-visible,.tab:focus-visible,.scope-title-trigger:focus-visible,.row-button:focus-visible,.lens:focus-visible,.filter-tab:focus-visible,.text-action:focus-visible,select:focus-visible,input:focus-visible,.disclosure:focus-visible{outline-color:var(--nf-zinc-300)}
+.btn-primary{background:var(--nf-zinc-100);border-color:var(--nf-zinc-100);color:var(--nf-zinc-950)}
+.btn-primary .btn-icon{filter:brightness(0)}
+.btn-secondary{background:var(--nf-zinc-800);border-color:var(--nf-zinc-600);color:var(--nf-zinc-100)}
+.filter-tab[aria-selected="true"]{background:var(--phase6e-neutral-selected);border-color:var(--nf-zinc-500);color:var(--nf-zinc-100)}
+.choice-row[aria-checked="true"] .choice-control{border-color:var(--nf-zinc-200);background:var(--nf-zinc-200);color:var(--nf-zinc-950)}
+.choice-row[aria-checked="true"] .choice-control img{filter:brightness(0)}
+.disclosure[aria-expanded="true"] .check-circle{background:var(--nf-zinc-200);border-color:var(--nf-zinc-200);color:var(--nf-zinc-950)}
+.disclosure[aria-expanded="true"] .check-circle img{filter:brightness(0)}
+.selected-asset{border-color:var(--nf-zinc-600);background:var(--nf-zinc-800)}
+.field input:focus{border-color:var(--nf-zinc-300)}
+.sheet-guidance,.field-error{color:var(--nf-zinc-200)}
+.field-error:not(:empty)::before{content:"오류 · ";font-weight:600}
+.trust-notice{border-left-color:var(--nf-zinc-400);background:var(--nf-zinc-800)}
+.trust-notice.stale{border-left-color:var(--nf-zinc-600);background:var(--nf-zinc-800)}
+.trust-notice.disconnect{border-left-color:var(--nf-zinc-200);background:var(--nf-zinc-800)}
+/* User-locked F-01 content title + scope count */
+.overview-title-block{padding:18px 16px 0}
+.overview-title-row{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:48px}
+.overview-title{margin:0;font-size:var(--nf-text-xl);line-height:28px;font-weight:700;color:var(--nf-text-title);min-width:0}
+.scope-title-trigger{min-height:44px;max-width:190px;border:0;background:transparent;color:var(--nf-text-strong);display:flex;align-items:center;justify-content:flex-end;gap:6px;padding:0;cursor:pointer;border-radius:var(--nf-radius-lg)}
+.scope-title-trigger:disabled{cursor:default;opacity:.55}
+.scope-title-trigger img{width:18px;height:18px;filter:brightness(0) invert(1);opacity:.7;flex:0 0 auto}
+.count-badge{display:inline-flex;align-items:center;min-height:26px;padding:0 9px;border-radius:var(--nf-radius-pill);background:var(--nf-zinc-800);border:1px solid var(--nf-zinc-700);color:var(--nf-zinc-200);font-size:var(--nf-text-xs);font-weight:600;white-space:nowrap}
+/* Summary-layer cards only. Repeated rows remain flat. */
+.section.summary-card,.section.allocation-card{margin-left:16px;margin-right:16px;padding:16px;background:var(--phase6e-card-surface);border:1px solid var(--phase6e-card-border);border-radius:var(--nf-radius-xl)}
+.section.summary-card{margin-top:18px;padding-top:16px}
+.section.allocation-card{margin-top:12px;padding-top:16px}
+.summary-card .section-head,.allocation-card .section-head{margin-bottom:12px}
+.summary-card .metric-grid{border-top-color:var(--nf-zinc-700)}
+.currency-select{background:var(--nf-zinc-800);border-color:var(--nf-zinc-600)}
+/* User-locked Donut/Pie allocation visualization. Neutral grayscale; legend is canonical. */
+.allocation-card .lens-tabs{margin-bottom:14px}
+.allocation-visual{display:grid;gap:14px}
+.allocation-chart-wrap{display:flex;justify-content:center;align-items:center;padding:2px 0}
+.allocation-chart{width:144px;height:144px;border-radius:50%;position:relative;box-shadow:inset 0 0 0 1px var(--nf-zinc-700);flex:0 0 auto}
+.allocation-chart.donut::after{content:"";position:absolute;inset:31px;border-radius:50%;background:var(--phase6e-card-surface);box-shadow:0 0 0 1px var(--nf-zinc-700)}
+.allocation-center{position:absolute;inset:34px;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;pointer-events:none}
+.allocation-center strong{font-size:var(--nf-text-base);line-height:20px;color:var(--nf-text-title);font-variant-numeric:tabular-nums}
+.allocation-center span{margin-top:2px;font-size:10px;line-height:14px;color:var(--nf-text-muted)}
+.allocation-legend{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 14px}
+.legend-item{display:grid;grid-template-columns:10px minmax(0,1fr) auto;align-items:start;column-gap:7px;min-height:22px}
+.legend-dot{width:10px;height:10px;border-radius:50%;margin-top:4px;border:1px solid rgb(255 255 255 / 12%)}
+.legend-name{font-size:var(--nf-text-xs);line-height:18px;color:var(--nf-text-body);overflow-wrap:anywhere}
+.legend-value{font-size:var(--nf-text-xs);line-height:18px;font-weight:600;color:var(--nf-text-strong);font-variant-numeric:tabular-nums;white-space:nowrap}
+.allocation-visual.detail .allocation-chart{width:156px;height:156px}
+.allocation-visual.detail .allocation-chart.donut::after{inset:34px}
+.allocation-visual.detail .allocation-center{inset:37px}
+/* Financial and category exceptions explicitly allowed by user direction. */
+.gain{color:#4ade80!important}.loss{color:#ef4444!important}
+.update-category{color:var(--nf-green-400)}
+.text-action,.edit-action{color:var(--nf-green-400)}
+/* Neutralize non-financial selected/control surfaces. */
+.sheet-handle{background:var(--nf-zinc-500)}
+.sheet{background:var(--nf-zinc-800)}
+.sheet-foot{background:var(--nf-zinc-800)}
+.choice-control{border-color:var(--nf-zinc-600)}
+.sticky-cta{background:linear-gradient(to top,var(--nf-surface-page) 72%,rgb(24 24 27 / 0))}
+@media(max-width:340px){
+  .overview-title-block{padding-top:14px}
+  .overview-title-row{gap:8px}
+  .overview-title{font-size:var(--nf-text-lg);line-height:26px}
+  .scope-title-trigger{max-width:156px}
+  .count-badge{padding:0 7px}
+  .section.summary-card,.section.allocation-card{margin-left:12px;margin-right:12px;padding:14px}
+  .allocation-chart{width:128px;height:128px}
+  .allocation-chart.donut::after{inset:28px}
+  .allocation-center{inset:31px}
+  .allocation-legend{grid-template-columns:1fr;gap:6px}
+  .legend-item{min-height:20px}
+}
+
+
+/* PHASE 6E R3 — user-provided visual refinements. Prototype-local only. */
+/* Financial amount is neutral; percentage/direction is carried by the semantic chip. */
+.summary-card .metric-value.gain,
+.summary-card .metric-value.loss,
+.summary-card .metric-value.flat{color:var(--nf-text-strong)!important}
+.summary-card .metric-sub.gain,
+.summary-card .metric-sub.loss{
+  display:inline-flex;align-items:center;justify-content:center;gap:3px;
+  width:max-content;min-height:22px;margin-top:6px;padding:2px 7px;
+  border-radius:var(--nf-radius-pill);font-size:11px;line-height:16px;font-weight:600
+}
+.summary-card .metric-sub.gain{background:rgb(74 222 128 / 12%);color:#4ade80!important}
+.summary-card .metric-sub.loss{background:rgb(239 68 68 / 12%);color:#ef4444!important}
+.summary-card .metric-sub.gain::before{content:"↑";font-weight:700}
+.summary-card .metric-sub.loss::before{content:"↓";font-weight:700}
+
+/* Allocation: chart left, legend right, matching the provided portfolio reference. */
+.allocation-visual{
+  grid-template-columns:minmax(112px,132px) minmax(0,1fr);
+  align-items:center;column-gap:16px;row-gap:10px
+}
+.allocation-chart-wrap{justify-content:flex-start;padding:0}
+.allocation-chart{width:132px;height:132px}
+.allocation-chart.donut::after{inset:29px}
+.allocation-center{inset:32px}
+.allocation-legend{grid-template-columns:1fr;gap:6px;align-content:center}
+.legend-item{grid-template-columns:10px minmax(0,1fr) auto;min-height:20px;column-gap:7px}
+.allocation-visual.detail{grid-template-columns:minmax(126px,150px) minmax(0,1fr);column-gap:18px}
+.allocation-visual.detail .allocation-chart{width:150px;height:150px}
+.allocation-visual.detail .allocation-chart.donut::after{inset:33px}
+.allocation-visual.detail .allocation-center{inset:36px}
+
+/* Holdings lists do not need an extra top rule under the section header. */
+.holdings-list{border-top:0}
+
+/* Valley-like centered full-width more row for the two F-01 preview destinations. */
+.section-footer.section-more-footer{
+  display:block;padding-top:0;margin-top:14px;
+  border-top:1px solid var(--nf-border-subtle);
+  border-bottom:1px solid var(--nf-border-subtle)
+}
+.text-action.section-more-action{
+  width:100%;min-height:68px;padding:0 16px;
+  display:flex;align-items:center;justify-content:center;gap:7px;
+  color:var(--nf-text-strong);font-size:var(--nf-text-base);font-weight:500;
+  text-align:center
+}
+.text-action.section-more-action::after{content:"→";font-size:20px;line-height:1;color:var(--nf-text-body);transform:translateY(-1px)}
+.section-divider-8{height:8px;background:var(--nf-zinc-950);margin-top:0}
+
+@media(max-width:340px){
+  .section{padding-top:48px}
+  .allocation-visual{grid-template-columns:106px minmax(0,1fr);column-gap:10px}
+  .allocation-chart{width:106px;height:106px}
+  .allocation-chart.donut::after{inset:24px}
+  .allocation-center{inset:27px}
+  .allocation-center strong{font-size:var(--nf-text-sm)}
+  .allocation-center span{font-size:9px}
+  .legend-item{grid-template-columns:9px minmax(0,1fr) auto;column-gap:6px}
+  .legend-dot{width:9px;height:9px}
+  .legend-name,.legend-value{font-size:11px;line-height:16px}
+  .allocation-visual.detail{grid-template-columns:112px minmax(0,1fr);column-gap:10px}
+  .allocation-visual.detail .allocation-chart{width:112px;height:112px}
+  .allocation-visual.detail .allocation-chart.donut::after{inset:25px}
+  .allocation-visual.detail .allocation-center{inset:28px}
+}
+
+/* PHASE 6E R3 — direct user refinements; existing GitHub Choice Chip pattern reused. */
+.overview-scope-control{display:flex;align-items:center;gap:4px;min-width:0}
+.overview-title-row .scope-title-trigger{width:44px;height:44px;min-height:44px;max-width:none;padding:0;display:inline-flex;align-items:center;justify-content:center;border:0;background:transparent;color:var(--nf-text-strong);border-radius:var(--nf-radius-lg);flex:0 0 44px}
+.overview-title-row .scope-title-trigger svg{width:16px;height:16px;display:block}
+.overview-title-row .scope-title-trigger:disabled{opacity:.55}
+
+/* Choice Chip visual variant: 44px touch target + compact neutral pill. */
+.allocation-card .lens-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;border-bottom:0;margin-bottom:14px;overflow:visible}
+.allocation-card .lens{height:44px;min-height:44px;padding:6px 2px;border:0;background:transparent;color:inherit;display:flex;align-items:center;justify-content:center;position:relative;cursor:pointer}
+.allocation-card .lens::after{display:none!important}
+.allocation-card .lens-chip{width:100%;height:32px;display:inline-flex;align-items:center;justify-content:center;padding:0 8px;border-radius:var(--nf-radius-pill);background:var(--nf-zinc-700);color:var(--nf-zinc-300);font-size:var(--nf-text-xs);font-weight:600;line-height:1;white-space:nowrap}
+.allocation-card .lens[aria-selected="true"] .lens-chip{background:var(--nf-zinc-950);color:var(--nf-white)}
+
+/* Donut receives explicit breathing room while preserving side-by-side layout. */
+.allocation-card .allocation-chart-wrap{padding:var(--nf-space-2) 0}
+
+/* Holding preview/full list: no trailing divider on the final holding. */
+.holdings-list .row-button:last-child{border-bottom:0}
+
+/* More-row refinements from direct user instruction. */
+.section-footer.section-more-footer{border-bottom:0}
+.text-action.section-more-action{gap:8px}
+.section-divider-8{background:var(--nf-border-subtle)}
+
+@media(max-width:340px){
+  .allocation-card .lens-tabs{gap:2px}
+  .allocation-card .lens-chip{padding:0 5px;font-size:11px}
+  .allocation-card .allocation-chart-wrap{padding:var(--nf-space-1) 0}
+}
+
+/* PHASE 6E R5 — direct user refinements. GitHub Choice Chip component reused. */
+:root{--nf-chevron-down-svg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23d4d4d8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")}
+
+/* Unify Scope and select chevrons to the same Lucide chevron-down geometry. */
+.overview-title-row .scope-title-trigger svg{width:16px;height:16px;stroke-width:2}
+.currency-select{appearance:none;-webkit-appearance:none;background-color:var(--nf-zinc-800);background-image:var(--nf-chevron-down-svg);background-repeat:no-repeat;background-position:right 8px center;background-size:16px 16px;padding-right:30px}
+.currency-select::-ms-expand{display:none}
+
+/* Existing GitHub Choice Chip — Dark Mode variant for Allocation lenses. */
+.allocation-card .lens-tabs{gap:6px}
+.allocation-card .lens{height:44px;min-height:44px;padding:6px 0}
+.allocation-card .lens-chip{height:32px;padding:0 12px;background:var(--nf-zinc-600);color:var(--nf-zinc-300);font-size:var(--nf-text-sm);font-weight:500}
+.allocation-card .lens[aria-selected="true"] .lens-chip{background:var(--nf-green-500);color:var(--nf-white);font-weight:600}
+
+/* Donut receives explicit horizontal and vertical breathing room. */
+.allocation-card .allocation-chart-wrap{padding:var(--nf-space-2) var(--nf-space-3)}
+
+/* Allocation detail action follows Valley text-action + chevron grammar. */
+.text-action.allocation-more-action{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding-left:12px}
+.text-action.allocation-more-action svg{width:16px;height:16px;display:block;flex:0 0 auto}
+
+/* Direct section rhythm override. */
+.section{padding:24px 16px 0}
+.section.summary-secondary{padding-top:24px}
+
+/* Repeated update list has no trailing divider. */
+.update-button:last-child .update-row{border-bottom:0}
+
+@media(max-width:340px){
+  .allocation-card .lens-tabs{gap:4px}
+  .allocation-card .lens-chip{padding:0 8px;font-size:12px}
+  .allocation-card .allocation-chart-wrap{padding:var(--nf-space-1) var(--nf-space-2)}
+}
+
+
+/* PHASE 6E R6 — direct user refinements. Prototype-local; GitHub DS remains read-only. */
+
+/* F-02 Checkbox: existing Selection Control behavior with user-directed 16×16 dark variant. */
+.sheet .choice-row{grid-template-columns:1fr 28px}
+.sheet .choice-control,
+.currency-option .choice-control{
+  width:16px;height:16px;min-width:16px;min-height:16px;
+  border:1px solid var(--nf-zinc-600);border-radius:2px;
+  display:inline-flex;align-items:center;justify-content:center;
+  background:transparent;color:transparent
+}
+.sheet .choice-row[aria-checked="true"] .choice-control,
+.currency-option[aria-selected="true"] .choice-control{
+  border-color:var(--nf-green-500);background:var(--nf-green-500);color:var(--nf-white)
+}
+.sheet .choice-control img,
+.currency-option .choice-control img{
+  width:14px;height:14px;display:block;filter:none
+}
+
+/* Scope Sheet primary CTA: explicit green-500 + white text requested by user. */
+.sheet .btn-primary.full-cta{background:var(--nf-green-500);color:var(--nf-white)}
+.sheet .btn-primary.full-cta:disabled{background:var(--nf-control-disabled-bg);color:var(--nf-control-disabled-text)}
+
+/* Financial Summary Currency control — custom dropdown based on existing DS Radio/single-select semantics. */
+.currency-dropdown{position:relative;flex:0 0 auto}
+.currency-select-trigger{
+  min-width:78px;height:40px;padding:0 10px 0 12px;
+  border:0;border-radius:var(--nf-radius-pill);
+  background:var(--nf-green-500);color:var(--nf-white);
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-size:var(--nf-text-sm);font-weight:600;cursor:pointer
+}
+.currency-select-trigger svg{width:16px;height:16px;display:block;flex:0 0 auto}
+.currency-select-trigger:focus-visible,.currency-option:focus-visible{outline:2px solid var(--nf-zinc-200);outline-offset:2px}
+.currency-menu{
+  position:absolute;right:0;top:calc(100% + 8px);z-index:40;
+  width:156px;padding:8px;
+  border:1px solid var(--nf-zinc-700);border-radius:var(--nf-radius-xl);
+  background:var(--nf-zinc-950);box-shadow:var(--nf-shadow-floating)
+}
+.currency-option{
+  width:100%;min-height:44px;padding:0 10px;
+  border:0;border-radius:var(--nf-radius-lg);
+  background:transparent;color:var(--nf-text-muted);
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  font-size:var(--nf-text-base);font-weight:500;text-align:left;cursor:pointer
+}
+.currency-option + .currency-option{margin-top:4px}
+.currency-option[aria-selected="true"]{background:var(--nf-green-600);color:var(--nf-white)}
+
+/* F-01 Holdings now renders the full current Scope list; trailing divider remains visible. */
+.holdings-list .row-button:last-child{border-bottom:1px solid var(--nf-border-subtle)}
+
+@media(max-width:340px){
+  .currency-menu{width:144px}
+}
+
+
+/* PHASE 6E R8 — direct user refinements. Prototype-local. */
+/* Title → content rhythm. */
+.section.summary-card{margin-top:16px}
+.holdings-section .section-head,.updates-section .section-head{margin-bottom:16px}
+
+/* Currency trigger is visually unselected while closed; active/open state receives fill. */
+.currency-select-trigger{background:transparent;color:var(--nf-text-strong)}
+.currency-dropdown.is-open .currency-select-trigger{background:var(--nf-green-500);color:var(--nf-white)}
+
+/* F-02 Apply CTA explicitly has no border. */
+.sheet .btn-primary.full-cta{border:0}
+
+/* Allocation chart column is fluid so legend never overlaps a fixed chart wrapper. */
+.allocation-visual,.allocation-visual.detail{grid-template-columns:minmax(0,42%) minmax(0,58%)}
+.allocation-chart-wrap{width:100%;min-width:0;max-width:100%}
+.allocation-chart{width:min(132px,100%);height:auto;aspect-ratio:1}
+.allocation-visual.detail .allocation-chart{width:min(150px,100%);height:auto;aspect-ratio:1}
+.allocation-chart.donut::after,.allocation-visual.detail .allocation-chart.donut::after{inset:22%}
+.allocation-center,.allocation-visual.detail .allocation-center{inset:24%}
+.allocation-legend{min-width:0}
+
+/* F-01 Holdings Preview: first 5 by existing 가나다 order, expandable in place. */
+.holdings-section .section-more-footer{margin-top:0}
+.holdings-list .row-button:last-child{border-bottom:1px solid var(--nf-border-subtle)}
+
+@media(max-width:340px){
+  .allocation-visual,.allocation-visual.detail{grid-template-columns:minmax(0,42%) minmax(0,58%);column-gap:10px}
+  .allocation-chart,.allocation-visual.detail .allocation-chart{width:min(108px,100%);height:auto;aspect-ratio:1}
+  .allocation-chart.donut::after,.allocation-visual.detail .allocation-chart.donut::after{inset:22%}
+  .allocation-center,.allocation-visual.detail .allocation-center{inset:24%}
+}
+
+
+/* PHASE 6E R8 — Product UX refinement. Prototype-local; GitHub DS remains read-only. */
+.overview-title-row{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:12px}
+.scope-identity-trigger{min-width:0;min-height:44px;border:0;background:transparent;color:var(--nf-text-strong);padding:0;display:grid;grid-template-columns:minmax(0,1fr) auto 16px;align-items:center;gap:7px;text-align:right;cursor:pointer;border-radius:var(--nf-radius-lg)}
+.scope-identity-trigger:focus-visible{outline:2px solid var(--nf-zinc-200);outline-offset:2px}
+.scope-identity-trigger:disabled{opacity:.55;cursor:default}
+.scope-identity-text{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:var(--nf-text-sm);font-weight:600;color:var(--nf-text-strong)}
+.scope-count-mini{display:inline-flex;align-items:center;justify-content:center;min-height:24px;padding:0 7px;border-radius:var(--nf-radius-pill);background:var(--nf-zinc-800);color:var(--nf-text-body);font-size:11px;font-weight:600;white-space:nowrap}
+.scope-identity-trigger svg{width:16px;height:16px;color:var(--nf-text-body)}
+.currency-select-trigger{min-height:44px;height:44px}
+.hero-label-line{display:flex;align-items:center;gap:7px;min-height:20px;margin-bottom:6px}
+.hero-label-line .eyebrow{margin-bottom:0}
+.summary-state-chip{display:inline-flex;align-items:center;min-height:22px;padding:0 7px;border:1px solid var(--nf-border-default);border-radius:var(--nf-radius-pill);background:transparent;color:var(--nf-text-body);font-size:10px;font-weight:600;line-height:1}
+.trust-actions{display:flex;justify-content:flex-end;margin-top:6px}
+.trust-action{min-height:36px;padding-left:8px}
+.updates-head{align-items:flex-start}
+
+
+.prototype-data-note{padding:10px 12px;border:1px solid var(--nf-border-subtle);border-radius:var(--nf-radius-lg);color:var(--nf-text-body);background:var(--nf-zinc-800);font-size:var(--nf-text-xs);line-height:18px}
+@media(max-width:340px){
+ .overview-title-row{gap:8px}
+ .scope-identity-trigger{grid-template-columns:minmax(0,1fr) auto 14px;gap:5px}
+ .scope-identity-text{font-size:12px}
+ .scope-count-mini{padding:0 5px;font-size:10px}
+}
+
+/* PHASE 6E R10 — title/content rhythm + in-place allocation expansion */
+.holdings-section > .section-head,
+.updates-section > .section-head{
+  margin-bottom:0;
+}
+.holdings-section .holdings-list > .row-button:first-child{
+  padding-top:16px;
+}
+.updates-section .update-list > .update-button:first-child .update-row{
+  padding-top:16px;
+}
+
+/* Allocation expands inside the same card instead of navigating to F-10. */
+.allocation-card.is-expanded .allocation-visual{
+  align-items:start;
+}
+.allocation-card.is-expanded .allocation-legend{
+  max-height:none;
+}
+.allocation-card .allocation-toggle-action{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+}
+.allocation-card .allocation-toggle-action svg{
+  width:16px;
+  height:16px;
+  flex:0 0 auto;
+}
+
+
+/* PHASE 6E R11 — Portfolio page scope + provenance UX */
+.portfolio-context-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:24px 16px 0;
+}
+.portfolio-context-row .context-title{
+  min-width:0;
+  margin:0;
+}
+.portfolio-scope-trigger{
+  max-width:68%;
+  min-height:44px;
+  border:0;
+  background:transparent;
+  color:var(--nf-text-body);
+  display:inline-flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:6px;
+  padding:0;
+  cursor:pointer;
+  font:inherit;
+}
+.portfolio-scope-trigger .scope-identity-text{
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  font-size:var(--nf-text-sm);
+  font-weight:500;
+  color:var(--nf-text-body);
+}
+.portfolio-scope-trigger svg{
+  width:16px;
+  height:16px;
+  flex:0 0 auto;
+}
+.portfolio-view-individual .section:first-of-type{
+  padding-top:24px;
+}
+.portfolio-view-actions{
+  padding:16px;
+}
+.portfolio-view-actions .btn{
+  width:100%;
+}
+
+/* Holding-detail portfolio provenance */
+.portfolio-provenance{
+  margin-top:28px;
+  border-top:1px solid var(--nf-border-subtle);
+}
+.portfolio-breakdown-trigger{
+  width:100%;
+  min-height:68px;
+  border:0;
+  background:transparent;
+  color:inherit;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 24px;
+  align-items:center;
+  gap:12px;
+  padding:16px 0;
+  text-align:left;
+  cursor:pointer;
+}
+.portfolio-breakdown-copy{
+  min-width:0;
+}
+.portfolio-breakdown-title{
+  display:block;
+  font-size:var(--nf-text-base);
+  line-height:22px;
+  font-weight:600;
+  color:var(--nf-text-strong);
+}
+.portfolio-breakdown-summary-text{
+  display:block;
+  margin-top:4px;
+  font-size:var(--nf-text-xs);
+  line-height:18px;
+  color:var(--nf-text-muted);
+}
+.portfolio-breakdown-trigger svg{
+  width:20px;
+  height:20px;
+  color:var(--nf-text-muted);
+  transition:transform .16s ease;
+}
+.portfolio-breakdown-trigger[aria-expanded="true"] svg{
+  transform:rotate(180deg);
+}
+.portfolio-provenance .breakdown{
+  border-top:1px solid var(--nf-border-subtle);
+}
+.portfolio-provenance .breakdown-summary{
+  display:none;
+}
+.breakdown-row{
+  padding:16px 0;
+}
+.breakdown-actions{
+  margin-top:12px;
+}
+.portfolio-link-action{
+  min-height:44px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+
+</style>
+<style>.prototype-note{display:none!important}main{min-height:100vh!important}
+/* PHASE 6E R10 — title/content rhythm + in-place allocation expansion */
+.holdings-section > .section-head,
+.updates-section > .section-head{
+  margin-bottom:0;
+}
+.holdings-section .holdings-list > .row-button:first-child{
+  padding-top:16px;
+}
+.updates-section .update-list > .update-button:first-child .update-row{
+  padding-top:16px;
+}
+
+/* Allocation expands inside the same card instead of navigating to F-10. */
+.allocation-card.is-expanded .allocation-visual{
+  align-items:start;
+}
+.allocation-card.is-expanded .allocation-legend{
+  max-height:none;
+}
+.allocation-card .allocation-toggle-action{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+}
+.allocation-card .allocation-toggle-action svg{
+  width:16px;
+  height:16px;
+  flex:0 0 auto;
+}
+
+
+/* PHASE 6E R11 — Portfolio page scope + provenance UX */
+.portfolio-context-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:24px 16px 0;
+}
+.portfolio-context-row .context-title{
+  min-width:0;
+  margin:0;
+}
+.portfolio-scope-trigger{
+  max-width:68%;
+  min-height:44px;
+  border:0;
+  background:transparent;
+  color:var(--nf-text-body);
+  display:inline-flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:6px;
+  padding:0;
+  cursor:pointer;
+  font:inherit;
+}
+.portfolio-scope-trigger .scope-identity-text{
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  font-size:var(--nf-text-sm);
+  font-weight:500;
+  color:var(--nf-text-body);
+}
+.portfolio-scope-trigger svg{
+  width:16px;
+  height:16px;
+  flex:0 0 auto;
+}
+.portfolio-view-individual .section:first-of-type{
+  padding-top:24px;
+}
+.portfolio-view-actions{
+  padding:16px;
+}
+.portfolio-view-actions .btn{
+  width:100%;
+}
+
+/* Holding-detail portfolio provenance */
+.portfolio-provenance{
+  margin-top:28px;
+  border-top:1px solid var(--nf-border-subtle);
+}
+.portfolio-breakdown-trigger{
+  width:100%;
+  min-height:68px;
+  border:0;
+  background:transparent;
+  color:inherit;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 24px;
+  align-items:center;
+  gap:12px;
+  padding:16px 0;
+  text-align:left;
+  cursor:pointer;
+}
+.portfolio-breakdown-copy{
+  min-width:0;
+}
+.portfolio-breakdown-title{
+  display:block;
+  font-size:var(--nf-text-base);
+  line-height:22px;
+  font-weight:600;
+  color:var(--nf-text-strong);
+}
+.portfolio-breakdown-summary-text{
+  display:block;
+  margin-top:4px;
+  font-size:var(--nf-text-xs);
+  line-height:18px;
+  color:var(--nf-text-muted);
+}
+.portfolio-breakdown-trigger svg{
+  width:20px;
+  height:20px;
+  color:var(--nf-text-muted);
+  transition:transform .16s ease;
+}
+.portfolio-breakdown-trigger[aria-expanded="true"] svg{
+  transform:rotate(180deg);
+}
+.portfolio-provenance .breakdown{
+  border-top:1px solid var(--nf-border-subtle);
+}
+.portfolio-provenance .breakdown-summary{
+  display:none;
+}
+.breakdown-row{
+  padding:16px 0;
+}
+.breakdown-actions{
+  margin-top:12px;
+}
+.portfolio-link-action{
+  min-height:44px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+
+</style>
+<style id="phase6e-r9-overrides">
+/* PHASE 6E R9 — targeted product refinement. Reference DS remains read-only. */
+.prototype-data-note{display:none!important}
+
+/* Update feed: title → excerpt → source/time → field/related-asset tags. */
+.update-row{padding:16px 0;border-bottom:1px solid var(--nf-border-subtle)}
+.update-title{font-size:var(--nf-text-base);line-height:22px;font-weight:600;color:var(--nf-text-title);margin:0 0 7px}
+.update-excerpt{font-size:var(--nf-text-sm);line-height:20px;color:var(--nf-text-body);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:9px}
+.update-meta{font-size:var(--nf-text-xs);line-height:18px;color:var(--nf-text-muted);margin-bottom:9px}
+.update-tags{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.update-tag{display:inline-flex;align-items:center;min-height:24px;padding:0 8px;border-radius:var(--nf-radius-pill);background:var(--nf-zinc-800);color:var(--nf-text-body);font-size:11px;line-height:1}
+.update-tag.related{border:1px solid var(--nf-border-subtle);background:transparent;color:var(--nf-text-strong)}
+.update-button:last-child .update-row{border-bottom:0}
+
+/* Holdings expand control uses explicit chevron SVG, not generated text. */
+.text-action.section-more-action::after{content:none!important}
+.text-action.section-more-action svg{width:18px;height:18px;flex:0 0 auto}
+
+/* Holding detail currency and provenance breakdown. */
+.detail-financial-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:6px}
+.detail-financial-head .eyebrow{margin:0}
+.breakdown{border-top:1px solid var(--nf-border-subtle);margin-top:10px}
+.breakdown-summary{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;padding:16px 0 8px}
+.breakdown-summary strong{font-size:var(--nf-text-sm);color:var(--nf-text-title);font-weight:600}
+.breakdown-summary span{font-size:var(--nf-text-xs);color:var(--nf-text-muted)}
+.breakdown-row{grid-template-columns:minmax(0,1fr) auto;padding:14px 0;align-items:start}
+.breakdown-financial{text-align:right}
+.breakdown-value{font-size:var(--nf-text-sm);font-weight:600;color:var(--nf-text-strong);font-variant-numeric:tabular-nums}
+.breakdown-outcome{font-size:var(--nf-text-xs);margin-top:4px;font-variant-numeric:tabular-nums}
+.breakdown-actions{grid-column:1/-1;display:flex;justify-content:flex-end;gap:12px;margin-top:8px}
+.portfolio-link-action{min-height:36px;padding:0;border:0;background:transparent;color:var(--nf-green-400);font-size:var(--nf-text-sm);font-weight:600;display:inline-flex;align-items:center;gap:6px;cursor:pointer}
+.portfolio-link-action svg{width:16px;height:16px}
+
+/* Individual Portfolio uses full holdings list without a secondary full-list CTA. */
+.individual-portfolio-holdings .section-footer{display:none!important}
+
+@media(max-width:340px){
+ .update-excerpt{font-size:12px;line-height:18px}
+ .breakdown-row{grid-template-columns:minmax(0,1fr)}
+ .breakdown-financial{text-align:left;margin-top:6px}
+ .breakdown-actions{justify-content:flex-start}
+}
+
+/* PHASE 6E R10 — title/content rhythm + in-place allocation expansion */
+.holdings-section > .section-head,
+.updates-section > .section-head{
+  margin-bottom:0;
+}
+.holdings-section .holdings-list > .row-button:first-child{
+  padding-top:16px;
+}
+.updates-section .update-list > .update-button:first-child .update-row{
+  padding-top:16px;
+}
+
+/* Allocation expands inside the same card instead of navigating to F-10. */
+.allocation-card.is-expanded .allocation-visual{
+  align-items:start;
+}
+.allocation-card.is-expanded .allocation-legend{
+  max-height:none;
+}
+.allocation-card .allocation-toggle-action{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+}
+.allocation-card .allocation-toggle-action svg{
+  width:16px;
+  height:16px;
+  flex:0 0 auto;
+}
+
+
+/* PHASE 6E R11 — Portfolio page scope + provenance UX */
+.portfolio-context-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:24px 16px 0;
+}
+.portfolio-context-row .context-title{
+  min-width:0;
+  margin:0;
+}
+.portfolio-scope-trigger{
+  max-width:68%;
+  min-height:44px;
+  border:0;
+  background:transparent;
+  color:var(--nf-text-body);
+  display:inline-flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:6px;
+  padding:0;
+  cursor:pointer;
+  font:inherit;
+}
+.portfolio-scope-trigger .scope-identity-text{
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  font-size:var(--nf-text-sm);
+  font-weight:500;
+  color:var(--nf-text-body);
+}
+.portfolio-scope-trigger svg{
+  width:16px;
+  height:16px;
+  flex:0 0 auto;
+}
+.portfolio-view-individual .section:first-of-type{
+  padding-top:24px;
+}
+.portfolio-view-actions{
+  padding:16px;
+}
+.portfolio-view-actions .btn{
+  width:100%;
+}
+
+/* Holding-detail portfolio provenance */
+.portfolio-provenance{
+  margin-top:28px;
+  border-top:1px solid var(--nf-border-subtle);
+}
+.portfolio-breakdown-trigger{
+  width:100%;
+  min-height:68px;
+  border:0;
+  background:transparent;
+  color:inherit;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 24px;
+  align-items:center;
+  gap:12px;
+  padding:16px 0;
+  text-align:left;
+  cursor:pointer;
+}
+.portfolio-breakdown-copy{
+  min-width:0;
+}
+.portfolio-breakdown-title{
+  display:block;
+  font-size:var(--nf-text-base);
+  line-height:22px;
+  font-weight:600;
+  color:var(--nf-text-strong);
+}
+.portfolio-breakdown-summary-text{
+  display:block;
+  margin-top:4px;
+  font-size:var(--nf-text-xs);
+  line-height:18px;
+  color:var(--nf-text-muted);
+}
+.portfolio-breakdown-trigger svg{
+  width:20px;
+  height:20px;
+  color:var(--nf-text-muted);
+  transition:transform .16s ease;
+}
+.portfolio-breakdown-trigger[aria-expanded="true"] svg{
+  transform:rotate(180deg);
+}
+.portfolio-provenance .breakdown{
+  border-top:1px solid var(--nf-border-subtle);
+}
+.portfolio-provenance .breakdown-summary{
+  display:none;
+}
+.breakdown-row{
+  padding:16px 0;
+}
+.breakdown-actions{
+  margin-top:12px;
+}
+.portfolio-link-action{
+  min-height:44px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+
+</style>
+</head><body><div class="app-shell"><div id="prototype-note" class="prototype-note" role="note">프로토타입</div><main id="app" tabindex="-1"></main></div><div id="overlay-root"></div><script>
+
+const ICONS={back:'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTkuODc4OTIgNC4yOTI4MUMxMC4yNjk1IDMuOTAyNDUgMTAuOTAyNSAzLjkwMjM0IDExLjI5MyA0LjI5MjgxQzExLjY4MzIgNC42ODMzIDExLjY4MzMgNS4zMTY0MSAxMS4yOTMgNS43MDY4N0w2LjAwMDAyIDEwLjk5OThIMTkuNTg2QzIwLjEzODEgMTAuOTk5OCAyMC41ODYgMTEuNDQ3NyAyMC41ODYgMTEuOTk5OEMyMC41ODU5IDEyLjU1MiAyMC4xMzggMTIuOTk5NiAxOS41ODYgMTIuOTk5OEg2LjAwMDAyTDExLjI5MyAxOC4yOTI4QzExLjY4MzIgMTguNjgzMyAxMS42ODMzIDE5LjMxNjQgMTEuMjkzIDE5LjcwNjlDMTAuOTAyNSAyMC4wOTczIDEwLjI2OTUgMjAuMDk3MiA5Ljg3ODkyIDE5LjcwNjlMMy41ODU5NSAxMy40MTM5QzIuODA1MDEgMTIuNjMyOSAyLjgwNTAxIDExLjM2NjggMy41ODU5NSAxMC41ODU4TDkuODc4OTIgNC4yOTI4MVoiIGZpbGw9ImN1cnJlbnRDb2xvciIvPjwvc3ZnPg==',down:'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTEyLjI1IDIuNzVDMTIuODAyMyAyLjc1MDA1IDEzLjI1IDMuMTk3NzUgMTMuMjUgMy43NVYxNy4zMzU5TDE4LjU0MyAxMi4wNDNDMTguOTMzNSAxMS42NTI1IDE5LjU2NjYgMTEuNjUyNSAxOS45NTcxIDEyLjA0M0MyMC4zNDc1IDEyLjQzMzUgMjAuMzQ3NSAxMy4wNjY1IDE5Ljk1NzEgMTMuNDU3TDEzLjY2NDEgMTkuNzVDMTIuODgzMSAyMC41MzA5IDExLjYxNyAyMC41MzA5IDEwLjgzNiAxOS43NUw0LjU0MzAxIDEzLjQ1N0M0LjE1MjQ5IDEzLjA2NjUgNC4xNTI0OSAxMi40MzM1IDQuNTQzMDEgMTIuMDQzQzQuOTMzNTQgMTEuNjUyNSA1LjU2NjU3IDExLjY1MjUgNS45NTcwOCAxMi4wNDNMMTEuMjUgMTcuMzM1OVYzLjc1QzExLjI1IDMuMTk3NzIgMTEuNjk3OCAyLjc1IDEyLjI1IDIuNzVaIiBmaWxsPSJjdXJyZW50Q29sb3IiLz48L3N2Zz4=',add:'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTEgMTNINkM1LjcxNjY3IDEzIDUuNDc5MTcgMTIuOTA0MiA1LjI4NzUgMTIuNzEyNUM1LjA5NTgzIDEyLjUyMDggNSAxMi4yODMzIDUgMTJDNSAxMS43MTY3IDUuMDk1ODMgMTEuNDc5MiA1LjI4NzUgMTEuMjg3NUM1LjQ3OTE3IDExLjA5NTggNS43MTY2NyAxMSA2IDExSDExVjZDMTEgNS43MTY2NyAxMS4wOTU4IDUuNDc5MTcgMTEuMjg3NSA1LjI4NzVDMTEuNDc5MiA1LjA5NTgzIDExLjcxNjcgNSAxMiA1QzEyLjI4MzMgNSAxMi41MjA4IDUuMDk1ODMgMTIuNzEyNSA1LjI4NzVDMTIuOTA0MiA1LjQ3OTE3IDEzIDUuNzE2NjcgMTMgNlYxMUgxOEMxOC4yODMzIDExIDE4LjUyMDggMTEuMDk1OCAxOC43MTI1IDExLjI4NzVDMTguOTA0MiAxMS40NzkyIDE5IDExLjcxNjcgMTkgMTJDMTkgMTIuMjgzMyAxOC45MDQyIDEyLjUyMDggMTguNzEyNSAxMi43MTI1QzE4LjUyMDggMTIuOTA0MiAxOC4yODMzIDEzIDE4IDEzSDEzVjE4QzEzIDE4LjI4MzMgMTIuOTA0MiAxOC41MjA4IDEyLjcxMjUgMTguNzEyNUMxMi41MjA4IDE4LjkwNDIgMTIuMjgzMyAxOSAxMiAxOUMxMS43MTY3IDE5IDExLjQ3OTIgMTguOTA0MiAxMS4yODc1IDE4LjcxMjVDMTEuMDk1OCAxOC41MjA4IDExIDE4LjI4MzMgMTEgMThWMTNaIiBmaWxsPSJjdXJyZW50Q29sb3IiLz48L3N2Zz4=',close:'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTIgMTMuMzk5OEw3LjEwMDA1IDE4LjI5OThDNi45MTY3MiAxOC40ODMxIDYuNjgzMzggMTguNTc0OCA2LjQwMDA1IDE4LjU3NDhDNi4xMTY3MiAxOC41NzQ4IDUuODgzMzggMTguNDgzMSA1LjcwMDA1IDE4LjI5OThDNS41MTY3MiAxOC4xMTY1IDUuNDI1MDUgMTcuODgzMSA1LjQyNTA1IDE3LjU5OThDNS40MjUwNSAxNy4zMTY1IDUuNTE2NzIgMTcuMDgzMSA1LjcwMDA1IDE2Ljg5OThMMTAuNiAxMS45OTk4TDUuNzAwMDUgNy4wOTk4QzUuNTE2NzIgNi45MTY0NyA1LjQyNTA1IDYuNjgzMTQgNS40MjUwNSA2LjM5OThDNS40MjUwNSA2LjExNjQ3IDUuNTE2NzIgNS44ODMxNCA1LjcwMDA1IDUuNjk5OEM1Ljg4MzM4IDUuNTE2NDcgNi4xMTY3MiA1LjQyNDggNi40MDAwNSA1LjQyNDhDNi42ODMzOCA1LjQyNDggNi45MTY3MiA1LjUxNjQ3IDcuMTAwMDUgNS42OTk4TDEyIDEwLjU5OThMMTYuOSA1LjY5OThDMTcuMDgzNCA1LjUxNjQ3IDE3LjMxNjcgNS40MjQ4IDE3LjYgNS40MjQ4QzE3Ljg4MzQgNS40MjQ4IDE4LjExNjcgNS41MTY0NyAxOC4zIDUuNjk5OEMxOC40ODM0IDUuODgzMTQgMTguNTc1IDYuMTE2NDcgMTguNTc1IDYuMzk5OEMxOC41NzUgNi42ODMxNCAxOC40ODM0IDYuOTE2NDcgMTguMyA3LjA5OThMMTMuNCAxMS45OTk4TDE4LjMgMTYuODk5OEMxOC40ODM0IDE3LjA4MzEgMTguNTc1IDE3LjMxNjUgMTguNTc1IDE3LjU5OThDMTguNTc1IDE3Ljg4MzEgMTguNDgzNCAxOC4xMTY1IDE4LjMgMTguMjk5OEMxOC4xMTY3IDE4LjQ4MzEgMTcuODgzNCAxOC41NzQ4IDE3LjYgMTguNTc0OEMxNy4zMTY3IDE4LjU3NDggMTcuMDgzNCAxOC40ODMxIDE2LjkgMTguMjk5OEwxMiAxMy4zOTk4WiIgZmlsbD0iY3VycmVudENvbG9yIi8+PC9zdmc+',check:'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTAuNiAxMy44TDguNDUgMTEuNjVDOC4yNjY2NyAxMS40NjY3IDguMDMzMzMgMTEuMzc1IDcuNzUgMTEuMzc1QzcuNDY2NjcgMTEuMzc1IDcuMjMzMzMgMTEuNDY2NyA3LjA1IDExLjY1QzYuODY2NjcgMTEuODMzMyA2Ljc3NSAxMi4wNjY3IDYuNzc1IDEyLjM1QzYuNzc1IDEyLjYzMzMgNi44NjY2NyAxMi44NjY3IDcuMDUgMTMuMDVMOS45IDE1LjlDMTAuMSAxNi4xIDEwLjMzMzMgMTYuMiAxMC42IDE2LjJDMTAuODY2NyAxNi4yIDExLjEgMTYuMSAxMS4zIDE1LjlMMTYuOTUgMTAuMjVDMTcuMTMzMyAxMC4wNjY3IDE3LjIyNSA5LjgzMzMzIDE3LjIyNSA5LjU1QzE3LjIyNSA5LjI2NjY3IDE3LjEzMzMgOS4wMzMzMyAxNi45NSA4Ljg1QzE2Ljc2NjcgOC42NjY2NyAxNi41MzMzIDguNTc1IDE2LjI1IDguNTc1QzE1Ljk2NjcgOC41NzUgMTUuNzMzMyA4LjY2NjY3IDE1LjU1IDguODVMMTAuNiAxMy44Wk0xMiAyMkMxMC42MTY3IDIyIDkuMzE2NjcgMjEuNzM3NSA4LjEgMjEuMjEyNUM2Ljg4MzMzIDIwLjY4NzUgNS44MjUgMTkuOTc1IDQuOTI1IDE5LjA3NUM0LjAyNSAxOC4xNzUgMy4zMTI1IDE3LjExNjcgMi43ODc1IDE1LjlDMi4yNjI1IDE0LjY4MzMgMiAxMy4zODMzIDIgMTJDMiAxMC42MTY3IDIuMjYyNSA5LjMxNjY3IDIuNzg3NSA4LjFDMy4zMTI1IDYuODgzMzMgNC4wMjUgNS44MjUgNC45MjUgNC45MjVDNS44MjUgNC4wMjUgNi44ODMzMyAzLjMxMjUgOC4xIDIuNzg3NUM5LjMxNjY3IDIuMjYyNSAxMC42MTY3IDIgMTIgMkMxMy4zODMzIDIgMTQuNjgzMyAyLjI2MjUgMTUuOSAyLjc4NzVDMTcuMTE2NyAzLjMxMjUgMTguMTc1IDQuMDI1IDE5LjA3NSA0LjkyNUMxOS45NzUgNS44MjUgMjAuNjg3NSA2Ljg4MzMzIDIxLjIxMjUgOC4xQzIxLjczNzUgOS4zMTY2NyAyMiAxMkMyMiAxMy4zODMzIDIxLjczNzUgMTQuNjgzMyAyMS4yMTI1IDE1LjlDMjAuNjg3NSAxNy4xMTY3IDE5Ljk3NSAxOC4xNzUgMTkuMDc1IDE5LjA3NUMxOC4xNzUgMTkuOTc1IDE3LjExNjcgMjAuNjg3NSAxNS45IDIxLjIxMjVDMTQuNjgzMyAyMS43Mzc1IDEzLjM4MzMgMjIgMTIgMjJaIiBmaWxsPSJjdXJyZW50Q29sb3IiLz48L3N2Zz4=',search:'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNOS4zODcwMSAxNi4zMjQ4QzcuNDg1NTEgMTYuMzI0OCA1Ljg3MjU5IDE1LjY2MjYgNC41NDgyNiAxNC4zMzgzQzMuMjI0MDkgMTMuMDE0MSAyLjU2MjAxIDExLjQwMTMgMi41NjIwMSA5LjQ5OTgxQzIuNTYyMDEgNy41OTgzMSAzLjIyNDA5IDUuOTg1NDcgNC41NDgyNiA0LjY2MTMxQzUuODcyNTkgMy4zMzY5NyA3LjQ4NTUxIDIuNjc0OCA5LjM4NzAxIDIuNjc0OEMxMS4yODg1IDIuNjc0OCAxMi45MDEzIDMuMzM2OTcgMTQuMjI1NSA0LjY2MTMxQzE1LjU0OTggNS45ODU0NyAxNi4yMTIgNy41OTgzMSAxNi4yMTIgOS40OTk4MUMxNi4yMTIgMTAuMjUyIDE2LjEwNDggMTAuOTQ2IDE1Ljg5MDMgMTEuNTgxOEMxNS42NzU4IDEyLjIxNzYgMTUuMzg3MyAxMi43NzYxIDE1LjAyNSAxMy4yNTczTDIwLjUxMiAxOC43NTg2QzIwLjc2MTMgMTkuMDE3MiAyMC44ODYgMTkuMzI4MiAyMC44ODYgMTkuNjkxNkMyMC44ODYgMjAuMDU1MSAyMC43NTY2IDIwLjM2MTUgMjAuNDk3OCAyMC42MTA4QzIwLjI0ODYgMjAuODYgMTkuOTM5OSAyMC45ODQ2IDE5LjU3MTggMjAuOTg0NkMxOS4yMDM2IDIwLjk4NDYgMTguODk0OSAyMC44NiAxOC42NDU4IDIwLjYxMDhMMTMuMTcyOCAxNS4xMzc4QzEyLjY4MjMgMTUuNTAwMSAxMi4xMTQzIDE1Ljc4ODYgMTEuNDY5IDE2LjAwMzFDMTAuODIzNyAxNi4yMTc2IDEwLjEyOTcgMTYuMzI0OCA5LjM4NzAxIDE2LjMyNDhaTTkuMzg3MDEgMTMuNjc0OEMxMC41NTIyIDEzLjY3NDggMTEuNTM5MyAxMy4yNzAzIDEyLjM0ODMgMTIuNDYxM0MxMy4xNTc0IDExLjY1MjEgMTMuNTYyIDEwLjY2NSAxMy41NjIgOS40OTk4MUMxMy41NjIgOC4zMzQ2NCAxMy4xNTc0IDcuMzQ3NDcgMTIuMzQ4MyA2LjUzODNDMTEuNTM5MyA1LjcyOTMgMTAuNTUyMiA1LjMyNDgxIDkuMzg3MDEgNS4zMjQ4MUM4LjIyMTg1IDUuMzI0ODEgNy4yMzQ2OCA1LjcyOTMgNi40MjU1MSA2LjUzODNDNS42MTY1MSA3LjM0NzQ3IDUuMjEyMDEgOC4zMzQ2NCA1LjIxMjAxIDkuNDk5ODFDNS4yMTIwMSAxMC42NjUgNS42MTY1MSAxMS42NTIxIDYuNDI1NTEgMTIuNDYxM0M3LjIzNDY4IDEzLjI3MDMgOC4yMjE4NSAxMy42NzQ4IDkuMzg3MDEgMTMuNjc0OFoiIGZpbGw9ImN1cnJlbnRDb2xvciIvPjwvc3ZnPg=='};
+const CHECKMARK_WHITE='data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2716%27%20height%3D%2716%27%20viewBox%3D%270%200%2016%2016%27%20fill%3D%27none%27%3E%3Cpath%20d%3D%27M3.5%208.2%206.5%2011%2012.5%205%27%20stroke%3D%27white%27%20stroke-width%3D%271.8%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%2F%3E%3C%2Fsvg%3E';
+function squareCheckImg(){return `<img src="${CHECKMARK_WHITE}" alt="" aria-hidden="true">`;}
+const fmtKRW=n=>`₩${Math.round(n).toLocaleString('ko-KR')}`;
+const fmtUSD=n=>`$${n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})}`;
+const sign=n=>n>0?'+':n<0?'−':'';
+const financialClass=n=>n>0?'gain':n<0?'loss':'flat';
+const pct=n=>`${sign(n)}${Math.abs(n).toFixed(2)}%`;
+const pctChip=n=>`${Math.abs(n).toFixed(2)}%`;
+const rateSemantic=n=>n>0?`상승 ${Math.abs(n).toFixed(2)}%`:n<0?`하락 ${Math.abs(n).toFixed(2)}%`:`변동 없음 ${Math.abs(n).toFixed(2)}%`;
+const wonSigned=n=>`${sign(n)}₩${Math.abs(Math.round(n)).toLocaleString('ko-KR')}`;
+const clone=o=>JSON.parse(JSON.stringify(o));
+// PHASE 6E R8 — Prototype-only aggregate financial semantics.
+// These helpers validate fixture arithmetic only; they do NOT define a Production Data Contract.
+function holdingCostCurrency(h){return h.costCurrency||(h.country==='미국'?'USD':'KRW');}
+function holdingAggregationKey(h){return [h.id,h.ticker||'',h.exchange||'UNSPECIFIED',holdingCostCurrency(h)].join('|');}
+function holdingCostBasisKRW(h){
+ if(Number.isFinite(h.costBasisKRW))return h.costBasisKRW;
+ if(Number.isFinite(h.value)&&Number.isFinite(h.profit))return h.value-h.profit;
+ if(Number.isFinite(h.avg)&&Number.isFinite(h.qty)&&holdingCostCurrency(h)==='KRW')return h.avg*h.qty;
+ return null;
+}
+function holdingLocalAverage(h){
+ if(Number.isFinite(h.localAvg))return h.localAvg;
+ if(holdingCostCurrency(h)==='USD'&&h.priceBasis!=='KRW_NORMALIZED'&&Number.isFinite(h.avg))return h.avg;
+ return null;
+}
+
+
+// ============================================================
+// PHASE 6E R4 — User Screenshot Reference Portfolio Fixture
+// Fixture provenance is intentionally explicit:
+// SOURCE_OBSERVED = directly visible in the user-provided screenshot.
+// SOURCE_DERIVED  = arithmetic derived from SOURCE_OBSERVED values.
+// SYNTHETIC       = prototype-only values required for interaction QA.
+// No value below defines a Production data contract.
+// ============================================================
+const REFERENCE_FIXTURE_USD_KRW=1380; // PROTOTYPE ONLY. Not a Production FX contract.
+const referencePortfolioSource={
+ id:'pref-us-assets',
+ name:'미국 자산 포트폴리오',
+ source:'USER_SCREENSHOT',
+ metrics:{
+  totalAssetUSD:115779.1,
+  profitUSD:11086,
+  profitRate:10.6,
+  provenance:'SOURCE_OBSERVED'
+ },
+ assetWeights:[
+  {id:'vtr',ticker:'VTR',weight:16.6},{id:'spy',ticker:'SPY',weight:9.0},{id:'twlo',ticker:'TWLO',weight:7.9},{id:'sbux',ticker:'SBUX',weight:7.8},{id:'icln',ticker:'ICLN',weight:7.8},
+  {id:'lrcx',ticker:'LRCX',weight:6.0},{id:'msft',ticker:'MSFT',weight:5.6},{id:'amat',ticker:'AMAT',weight:5.5},{id:'aal',ticker:'AAL',weight:5.4},{id:'veev',ticker:'VEEV',weight:5.1},
+  {id:'net',ticker:'NET',weight:4.0},{id:'dia',ticker:'DIA',weight:3.7},{id:'dis',ticker:'DIS',weight:3.2},{id:'spyg',ticker:'SPYG',weight:3.1},{id:'ccl',ticker:'CCL',weight:2.7},
+  {id:'reference-other',ticker:'기타',weight:6.7}
+ ],
+ sectorWeights:[
+  {name:'IT',weight:27.2},{name:'기타',weight:23.6},{name:'부동산',weight:18.7},{name:'경기 소비재',weight:13.7},{name:'첨단 기술',weight:6.0},{name:'산업재',weight:5.5},{name:'운송·물류',weight:5.4}
+ ]
+};
+
+// Prototype-only synthetic data. These values were not observed in the screenshot.
+const referenceSyntheticByTicker={
+ VTR:{qty:310,profitUSD:3094.32,daily:0.40,type:'리츠',country:'미국',sector:'부동산'},
+ SPY:{qty:18,profitUSD:1516.95,daily:0.60,type:'ETF',country:'미국',sector:'기타'},
+ TWLO:{qty:110,profitUSD:-795.35,daily:-1.20,type:'주식',country:'미국',sector:'IT'},
+ SBUX:{qty:93,profitUSD:1021.23,daily:0.20,type:'주식',country:'미국',sector:'경기 소비재'},
+ ICLN:{qty:669,profitUSD:-475.30,daily:-0.50,type:'ETF',country:'미국',sector:'기타'},
+ LRCX:{qty:76,profitUSD:1419.08,daily:1.10,type:'주식',country:'미국',sector:'첨단 기술'},
+ MSFT:{qty:15,profitUSD:1234.01,daily:0.80,type:'주식',country:'미국',sector:'IT'},
+ AMAT:{qty:30,profitUSD:1025.23,daily:0.90,type:'주식',country:'미국',sector:'산업재'},
+ AAL:{qty:453,profitUSD:-260.50,daily:-0.70,type:'주식',country:'미국',sector:'운송·물류'},
+ VEEV:{qty:26,profitUSD:859.61,daily:0.30,type:'주식',country:'미국',sector:'IT'},
+ NET:{qty:37,profitUSD:1069.24,daily:1.40,type:'주식',country:'미국',sector:'IT'},
+ DIA:{qty:11,profitUSD:448.06,daily:0.40,type:'ETF',country:'미국',sector:'기타'},
+ DIS:{qty:36,profitUSD:-114.59,daily:-0.20,type:'주식',country:'미국',sector:'경기 소비재'},
+ SPYG:{qty:44,profitUSD:494.11,daily:0.70,type:'ETF',country:'미국',sector:'기타'},
+ CCL:{qty:157,profitUSD:549.90,daily:-0.60,type:'주식',country:'미국',sector:'경기 소비재'}
+};
+
+function buildReferencePortfolio(){
+ const totalUSD=referencePortfolioSource.metrics.totalAssetUSD;
+ const holdings=referencePortfolioSource.assetWeights.filter(x=>x.ticker!=='기타').map(source=>{
+  const syn=referenceSyntheticByTicker[source.ticker];
+  const sourceMarketValueUSD=totalUSD*(source.weight/100); // SOURCE_DERIVED
+  const value=sourceMarketValueUSD*REFERENCE_FIXTURE_USD_KRW;
+  const profit=syn.profitUSD*REFERENCE_FIXTURE_USD_KRW;
+  const cost=value-profit;
+  const price=value/syn.qty; // normalized KRW fixture price; qty × price ≈ value
+  const avg=cost/syn.qty;
+  return {
+   id:source.id,name:source.ticker,ticker:source.ticker,
+   type:syn.type,country:syn.country,sector:syn.sector,
+   qty:syn.qty,avg,price,value,profit,
+   profitRate:cost?profit/cost*100:0,daily:syn.daily,
+   weight:source.weight,
+   localPrice:price/REFERENCE_FIXTURE_USD_KRW,
+   localAvg:avg/REFERENCE_FIXTURE_USD_KRW,
+   localPriceKRW:price,priceBasis:'KRW_NORMALIZED',
+   sourceMarketValueUSD,
+   fixtureProvenance:{
+    weight:'SOURCE_OBSERVED',sourceMarketValueUSD:'SOURCE_DERIVED',
+    qty:'SYNTHETIC',avg:'SYNTHETIC',price:'SYNTHETIC',profit:'SYNTHETIC',profitRate:'SYNTHETIC',daily:'SYNTHETIC',
+    type:'SYNTHETIC',country:'SYNTHETIC',sector:'SYNTHETIC'
+   }
+  };
+ });
+ const dailyUSD=holdings.reduce((sum,h)=>sum+h.sourceMarketValueUSD*(h.daily/100),0);
+ const stockRows=referencePortfolioSource.assetWeights.map(x=>({id:x.id,name:x.ticker,weight:x.weight}));
+ const sectorRows=referencePortfolioSource.sectorWeights.map(x=>({name:x.name,weight:x.weight}));
+ // Asset / country lenses are NOT source-observed in the screenshot. They are explicit synthetic mappings.
+ const assetRows=[
+  {name:'주식',weight:53.2},{name:'ETF',weight:23.6},{name:'리츠',weight:16.6},{name:'기타',weight:6.7}
+ ];
+ const countryRows=[{name:'미국',weight:93.4},{name:'기타',weight:6.7}];
+ return {
+  id:referencePortfolioSource.id,name:referencePortfolioSource.name,
+  fixtureKind:'REFERENCE',fixtureSource:'USER_SCREENSHOT',sourceCurrency:'USD',
+  summaryValue:totalUSD*REFERENCE_FIXTURE_USD_KRW,
+  summaryProfit:referencePortfolioSource.metrics.profitUSD*REFERENCE_FIXTURE_USD_KRW,
+  summaryProfitRate:referencePortfolioSource.metrics.profitRate,
+  daily:dailyUSD*REFERENCE_FIXTURE_USD_KRW,
+  profit:referencePortfolioSource.metrics.profitUSD*REFERENCE_FIXTURE_USD_KRW,
+  profitRate:referencePortfolioSource.metrics.profitRate,
+  holdings,
+  referenceAllocation:{
+   stock:{status:'SOURCE_OBSERVED',rows:stockRows},
+   sector:{status:'SOURCE_OBSERVED',rows:sectorRows},
+   asset:{status:'SYNTHETIC',rows:assetRows},
+   country:{status:'SYNTHETIC',rows:countryRows}
+  },
+  fixtureProvenance:{
+   totalAsset:'SOURCE_OBSERVED',profit:'SOURCE_OBSERVED',profitRate:'SOURCE_OBSERVED',daily:'SYNTHETIC',
+   stockAllocation:'SOURCE_OBSERVED',sectorAllocation:'SOURCE_OBSERVED',assetAllocation:'SYNTHETIC',countryAllocation:'SYNTHETIC'  }
+ };
+}
+const referencePortfolio=buildReferencePortfolio();
+const referenceUpdates=[
+ {id:'ref-u1',assetId:'vtr',type:'뉴스',asset:'VTR',title:'VTR 보유 맥락에서 확인할 최근 업데이트',source:'Prototype Fixture',displayTs:'2026-10-08T15:20:00+09:00',meta:'1시간 전',body:'VTR 보유 비중과 최근 변동을 확인할 수 있도록 구성한 Prototype fixture 콘텐츠입니다.',fixtureProvenance:'SYNTHETIC'},
+ {id:'ref-u2',assetId:'spy',type:'분석',asset:'SPY',title:'SPY 보유 비중과 시장 흐름 점검',source:'Prototype Fixture',displayTs:'2026-10-08T12:10:00+09:00',meta:'4시간 전',body:'현재 선택 범위에서 SPY가 차지하는 비중과 시장 흐름을 함께 확인할 수 있는 Prototype fixture 콘텐츠입니다.',fixtureProvenance:'SYNTHETIC'},
+ {id:'ref-u3',assetId:'twlo',type:'주요 이벤트',asset:'TWLO',title:'TWLO 관련 주요 일정과 확인 포인트',source:'Prototype Fixture',displayTs:'2026-10-07T18:00:00+09:00',meta:'어제',body:'TWLO 보유 사용자가 관련 일정과 변동 요인을 확인하는 흐름을 검증하기 위한 Prototype fixture 콘텐츠입니다.',fixtureProvenance:'SYNTHETIC'}
+];
+
+const baseData={
+ portfolios:[referencePortfolio,
+  {id:'p1',name:'장기 투자',daily:70964,profit:1490854,profitRate:10.27,holdings:[
+   {id:'samsung',name:'삼성전자',ticker:'005930',type:'주식',country:'한국',sector:'반도체',qty:80,avg:75200,price:88500,value:7080000,profit:1064000,profitRate:17.68,daily:1.32},
+   {id:'skhynix',name:'SK하이닉스',ticker:'000660',type:'주식',country:'한국',sector:'반도체',qty:12,avg:172000,price:191500,value:2298000,profit:234000,profitRate:11.34,daily:-0.42},
+   {id:'apple',name:'Apple',ticker:'AAPL',type:'주식',country:'미국',sector:'IT',qty:9,avg:183.4,price:198.2,value:2450000,localPrice:198.2,localPriceKRW:273516,profit:168000,profitRate:7.36,daily:0.85},
+   {id:'msft',name:'Microsoft',ticker:'MSFT',type:'주식',country:'미국',sector:'IT',qty:3,avg:558900,localAvg:405,price:622518,localPrice:451.1,localPriceKRW:622518,priceBasis:'KRW_NORMALIZED',value:1867554,profit:190854,profitRate:11.38,daily:0.48,fixtureProvenance:'SYNTHETIC_QA_DISTRIBUTED'},
+   {id:'worldetf',name:'ACE 글로벌반도체TOP4 Plus SOLACTIVE',ticker:'446770',type:'ETF',country:'글로벌',sector:'반도체',qty:64,avg:16820,price:18110,value:1159040,profit:82560,profitRate:7.67,daily:0.21},
+   {id:'naver',name:'NAVER',ticker:'035420',type:'주식',country:'한국',sector:'인터넷',qty:8,avg:221000,price:234000,value:1872000,profit:104000,profitRate:5.88,daily:0.55}
+  ]},
+  {id:'p2',name:'성장주 포트폴리오',daily:41000,profit:900000,profitRate:10.27,holdings:[
+   {id:'samsung',name:'삼성전자',ticker:'005930',type:'주식',country:'한국',sector:'반도체',qty:35,avg:79000,price:88500,value:3097500,profit:332500,profitRate:12.03,daily:1.32},
+   {id:'tesla',name:'Tesla',ticker:'TSLA',type:'주식',country:'미국',sector:'자동차',qty:5,avg:263.5,price:281.4,value:1990000,localPrice:281.4,localPriceKRW:388332,profit:127000,profitRate:6.81,daily:-1.12},
+   {id:'msft',name:'Microsoft',ticker:'MSFT',type:'주식',country:'미국',sector:'IT',qty:4,avg:421.2,price:451.1,value:2550000,localPrice:451.1,localPriceKRW:622518,profit:169000,profitRate:7.10,daily:0.48},
+   {id:'bio',name:'삼성바이오로직스',ticker:'207940',type:'주식',country:'한국',sector:'헬스케어',qty:2,avg:930000,price:1012000,value:2024000,profit:164000,profitRate:8.82,daily:1.05}
+  ]},
+  {id:'p3',name:'연금',daily:-20000,profit:200000,profitRate:4.76,holdings:[
+   {id:'sp500',name:'TIGER 미국S&P500',ticker:'360750',type:'ETF',country:'미국',sector:'지수',qty:120,avg:16500,price:18120,value:2174400,profit:194400,profitRate:9.82,daily:-0.17},
+   {id:'bond',name:'KOSEF 국고채10년',ticker:'148070',type:'채권',country:'한국',sector:'채권',qty:20,avg:109500,price:111300,value:2226000,profit:36000,profitRate:1.64,daily:0.08}
+  ]}
+ ],
+ updates:[...referenceUpdates,
+  {id:'u1',assetId:'samsung',type:'뉴스',asset:'삼성전자',title:'HBM 공급 계약 관련 신규 발표와 시장 반응',source:'연합뉴스',displayTs:'2026-10-07T14:20:00+09:00',meta:'2시간 전',body:'HBM 공급 계약 관련 발표 이후 삼성전자와 반도체 업종의 시장 반응이 이어지고 있습니다.'},
+  {id:'u2',assetId:'skhynix',type:'공시',asset:'SK하이닉스',title:'주요 경영사항 관련 공시 업데이트',source:'DART',displayTs:'2026-10-07T13:10:00+09:00',meta:'3시간 전',body:'주요 경영사항 공시가 등록되어 보유 종목 관점에서 확인할 수 있도록 구성했습니다.'},
+  {id:'u3',assetId:'apple',type:'분석',asset:'Apple',title:'최근 실적 추정치 변화와 확인 포인트',source:'Valley AI',displayTs:'2026-10-07T11:00:00+09:00',meta:'5시간 전',body:'최근 실적 추정치 변화와 보유 맥락에서 확인할 항목을 정리한 Prototype fixture 콘텐츠입니다.'},
+  {id:'u4',assetId:'tesla',type:'주요 이벤트',asset:'Tesla',title:'제품 발표 일정과 관련 종목 이벤트',source:'Valley Event',displayTs:'2026-10-06T19:00:00+09:00',meta:'어제',body:'제품 발표 일정과 관련 종목 이벤트를 확인할 수 있도록 구성한 Prototype fixture 콘텐츠입니다.'},
+  {id:'u5',assetId:'samsung',type:'일정',asset:'삼성전자',title:'3분기 실적발표',source:'실적 일정',displayTs:'2026-10-23T09:00:00+09:00',meta:'예정 · 10월 23일 09:00',future:true,body:'3분기 실적발표 예정 일정을 보유 종목 맥락에서 확인할 수 있도록 구성했습니다.'}
+ ]
+};
+
+let data=clone(baseData);
+// All bundled news/event content is Prototype fixture data unless explicitly marked otherwise.
+data.updates.forEach(u=>{if(!u.fixtureProvenance)u.fixtureProvenance='SYNTHETIC'});
+const qs=new URLSearchParams(location.search);
+const allocationVisual=qs.get('allocation')==='pie'?'pie':'donut';
+const allocationPalette=['#e4e4e7','#b4b4bd','#86868f','#62626b','#45454c','#a1a1aa','#73737c','#55555d'];
+let fixture=qs.get('fixture')||'normal';
+let debug=qs.get('debug')==='1';
+let current={screen:'F01',scope:['pref-us-assets'],portfolioId:'pref-us-assets',holdingId:null,holdingContext:'aggregate',updateId:null,updateScopeIds:null,updateScopeLabel:null,lens:'asset',currency:'USD',updateFilter:'전체',comparison:'portfolio',holdingSort:'name',portfolioViewId:'all',overviewHoldingsExpanded:false,allocationExpanded:false};
+let nav=[];
+let sheetDraft=null;
+let portfolioPickerOpen=false;
+let currencyMenuOpen=false;
+
+function currentPortfolios(){return data.portfolios.filter(p=>current.scope.includes(p.id));}
+function portfoliosByIds(ids){return data.portfolios.filter(p=>(ids||[]).includes(p.id));}
+function activeHoldings(portfolios=currentPortfolios()){return portfolios.flatMap(p=>p.holdings.filter(h=>h.qty>0).map(h=>({...h,portfolioId:p.id,portfolioName:p.name})));}
+function scopeCompactText(){const ps=currentPortfolios();if(!ps.length)return '선택 없음';if(ps.length===1)return ps[0].name;return `${ps[0].name} 외 ${ps.length-1}개`;}
+function scopeSelectedCount(){return fixture==='no-portfolio'?0:currentPortfolios().length;}
+function scopeCountLabel(){return `${scopeSelectedCount()}개 선택됨`;}
+function scopeIdentityText(portfolios=currentPortfolios()){if(!portfolios.length)return '포트폴리오 선택';if(portfolios.length===1)return portfolios[0].name;return `${portfolios[0].name} 외 ${portfolios.length-1}개`;}
+function scopeAccessibleText(portfolios=currentPortfolios()){if(!portfolios.length)return '선택된 포트폴리오 없음';return portfolios.map(p=>p.name).join(', ');}
+function portfolioViewPortfolio(){return current.portfolioViewId==='all'?null:data.portfolios.find(p=>p.id===current.portfolioViewId)||null;}
+function portfolioViewLabel(){const p=portfolioViewPortfolio();return p?p.name:'모든 포트폴리오';}
+function portfolioScopeTrigger(){const label=portfolioViewLabel();return `<button class="scope-identity-trigger portfolio-scope-trigger" data-action="portfolio-scope" aria-haspopup="dialog" aria-label="포트폴리오 선택, 현재 ${label}"><span class="scope-identity-text" title="${label}">${label}</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>`;}
+function portfolioContextHeader(){return `<div class="portfolio-context-row"><h2 class="context-title">포트폴리오</h2>${portfolioScopeTrigger()}</div>`;}
+
+function overviewScopeHeader(disabled=false){const ps=currentPortfolios();const count=fixture==='no-portfolio'?0:ps.length;const identity=fixture==='no-portfolio'?'포트폴리오 선택':scopeIdentityText(ps);const full=fixture==='no-portfolio'?'선택된 포트폴리오 없음':scopeAccessibleText(ps);return `<div class="overview-title-block"><div class="overview-title-row"><h2 class="overview-title">모아보기</h2><button class="scope-identity-trigger" data-action="scope" aria-haspopup="dialog" aria-label="포트폴리오 선택, ${count}개 선택, ${full}" ${disabled?'disabled':''}><span class="scope-identity-text" title="${full}">${identity}</span><span class="scope-count-mini">${count}개</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button></div></div>`;}
+function aggregateHoldings(portfolios=currentPortfolios()){
+ const map=new Map();
+ portfolios.forEach(p=>p.holdings.forEach(h=>{
+  if(h.qty<=0)return;
+  const key=holdingAggregationKey(h);
+  const existing=map.get(key)||{...h,aggregateKey:key,qty:0,value:0,profit:0,costBasisKRW:0,costBasisKnown:true,localCostBasis:0,localCostKnown:true,dailyValueWeighted:0,sources:[]};
+  const costBasis=holdingCostBasisKRW(h);
+  const localAvg=holdingLocalAverage(h);
+  existing.qty+=h.qty;
+  existing.value+=Number.isFinite(h.value)?h.value:0;
+  existing.dailyValueWeighted+=(Number.isFinite(h.value)?h.value:0)*(Number.isFinite(h.daily)?h.daily:0);
+  if(costBasis===null){existing.costBasisKnown=false}else existing.costBasisKRW+=costBasis;
+  if(holdingCostCurrency(h)==='USD'){if(localAvg===null){existing.localCostKnown=false}else existing.localCostBasis+=localAvg*h.qty;}
+  existing.sources.push({portfolioId:p.id,portfolioName:p.name,holdingId:h.id,qty:h.qty,avg:h.avg,localAvg,costBasisKRW:costBasis,costCurrency:holdingCostCurrency(h),country:h.country,value:h.value,profit:h.profit,profitRate:h.profitRate,fixtureKind:p.fixtureKind||'SYNTHETIC'});
+  map.set(key,existing);
+ }));
+ const result=[...map.values()];
+ result.forEach(h=>{
+  h.daily=h.value?h.dailyValueWeighted/h.value:0;
+  if(h.costBasisKnown&&h.qty>0){
+   h.avg=h.costBasisKRW/h.qty;
+   h.profit=h.value-h.costBasisKRW;
+   h.profitRate=h.costBasisKRW?h.profit/h.costBasisKRW*100:0;
+  }else{h.avg=null;h.profit=NaN;h.profitRate=null;}
+  if(holdingCostCurrency(h)==='USD')h.localAvg=h.localCostKnown&&h.qty>0?h.localCostBasis/h.qty:null;
+ });
+ return result.sort((a,b)=>a.name.localeCompare(b.name,'ko'));
+}
+function portfolioSummaryValue(p){return p.summaryValue??p.holdings.filter(h=>h.qty>0).reduce((s,h)=>s+h.value,0);}
+function portfolioSummaryProfit(p){return p.summaryProfit??p.profit??0;}
+function summaryFor(portfolios){
+ const value=portfolios.reduce((s,p)=>s+portfolioSummaryValue(p),0);
+ const daily=portfolios.reduce((s,p)=>s+(p.daily||0),0);
+ const profit=portfolios.reduce((s,p)=>s+portfolioSummaryProfit(p),0);
+ const cost=value-profit;
+ const profitRate=portfolios.length===1&&portfolios[0].summaryProfitRate!=null?portfolios[0].summaryProfitRate:(cost?profit/cost*100:0);
+ return {value,daily,dailyRate:value?daily/value*100:0,profit,profitRate};
+}
+function fxValue(value,currency){if(currency==='USD')return value/1380;return value;}
+function money(value,currency=current.currency,signed=false){if(value===null||value===undefined||Number.isNaN(value))return '—';const v=fxValue(value,currency);if(currency==='USD')return `${signed?sign(v):''}$${Math.abs(v).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})}`;return signed?wonSigned(value):fmtKRW(value);}
+function scopeText(){const ps=currentPortfolios();if(ps.length===0)return '선택 없음';if(ps.length===1)return ps[0].name;return `${ps.length}개 포트폴리오 선택됨`;}
+function fixturePortfolioData(){
+ if(fixture==='no-portfolio')return [];
+ if(fixture==='empty-holdings'){let d=clone(data.portfolios);d.forEach(p=>{p.holdings=[];p.summaryValue=0;p.summaryProfit=0;p.summaryProfitRate=null;p.daily=0;p.profit=0;p.profitRate=0});return d.filter(p=>current.scope.includes(p.id));}
+ return currentPortfolios();
+}
+function applicableSummary(){return summaryFor(fixturePortfolioData());}
+function stateNotice(){
+ const action=`<div class="trust-actions"><button class="text-action trust-action" data-action="retry">다시 확인</button></div>`;
+ if(fixture==='partial')return `<div class="trust-notice" role="status"><div class="trust-title">일부 정보만 반영됨</div><div class="trust-copy">일부 포트폴리오 정보를 모두 반영하지 못했습니다. 완전한 전체 합계는 확인할 수 없습니다.</div>${action}</div>`;
+ if(fixture==='stale')return `<div class="trust-notice stale" role="status"><div class="trust-title">최신 상태 확인 필요</div><div class="trust-copy">일부 정보가 최신 상태가 아닙니다. 표시된 값은 마지막으로 확인된 값일 수 있습니다.</div>${action}</div>`;
+ if(fixture==='disconnected')return `<div class="trust-notice disconnect" role="status"><div class="trust-title">연결이 끊긴 포트폴리오가 있음</div><div class="trust-copy">선택 범위의 일부 원본이 연결되지 않아 완전한 전체 합계를 확인할 수 없습니다.</div>${action}</div>`;
+ return '';
+}
+function img(src,alt=''){return `<img src="${src}" alt="${alt}">`}
+function rootTabs(active){return `<nav class="top-tabs" role="tablist" aria-label="투자분석"><button class="tab" role="tab" tabindex="${active==='overview'?0:-1}" aria-selected="${active==='overview'}" data-action="tab" data-target="overview">모아보기</button><button class="tab" role="tab" tabindex="${active==='portfolio'?0:-1}" aria-selected="${active==='portfolio'}" data-action="tab" data-target="portfolio">포트폴리오</button><button class="tab" role="tab" tabindex="${active==='watchlist'?0:-1}" aria-selected="${active==='watchlist'}" data-action="tab" data-target="watchlist">관심종목</button></nav>`}
+function detailHeader(title){return `<header class="detail-header"><button class="icon-button" data-action="back" aria-label="뒤로">${img(ICONS.back)}</button><h1>${title}</h1><span></span></header>`}
+function currencyControl(){
+ const options=['KRW','USD'];
+ return `<div class="currency-dropdown ${currencyMenuOpen?'is-open':''}"><button class="currency-select currency-select-trigger" type="button" data-action="currency-toggle" aria-haspopup="listbox" aria-expanded="${currencyMenuOpen}" aria-label="표시 통화, ${current.currency}"><span>${current.currency}</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>${currencyMenuOpen?`<div class="currency-menu" role="listbox" aria-label="표시 통화 선택">${options.map(v=>`<button class="currency-option" type="button" role="option" aria-selected="${current.currency===v}" data-action="currency-option" data-value="${v}"><span>${v}</span><span class="choice-control currency-option-check">${current.currency===v?squareCheckImg():''}</span></button>`).join('')}</div>`:''}</div>`;
+}
+function financialSummary(summary,allowCurrency=true){
+ const s=fixture==='page-error'?null:summary;
+ if(fixture==='loading')return `<section class="section summary-card"><div class="section-head"><h2 class="section-title">투자 현황</h2></div><div class="skeleton sk-line"></div><div class="skeleton sk-hero"></div><div class="metric-grid"><div><div class="skeleton sk-line"></div></div><div><div class="skeleton sk-line"></div></div></div></section>`;
+ if(fixture==='page-error')return `<div class="state-panel" role="alert"><div class="state-title">투자 현황을 불러오지 못했습니다</div><p class="state-copy">현재 투자 현황을 표시할 수 없습니다. 선택한 포트폴리오는 유지됩니다.</p><button class="btn btn-secondary" data-action="retry">다시 시도</button></div>`;
+ const empty=fixture==='empty-holdings';
+ const incomplete=fixture==='partial'||fixture==='disconnected';
+ const stale=fixture==='stale';
+ const heroLabel=incomplete?'평가금액 확인 필요':'총 평가금액';
+ const heroState=fixture==='partial'?'일부 데이터 누락':fixture==='disconnected'?'연결 상태 확인 필요':stale?'최신 상태 확인 필요':'';
+ const hero=empty?money(summary.value):incomplete?'—':money(summary.value);
+ const daily=(empty||incomplete)?'—':money(summary.daily,current.currency,true);
+ const total=(empty||incomplete)?'—':money(summary.profit,current.currency,true);
+ const unavailable=empty||incomplete;
+ const heroAria=`${heroLabel}, ${hero}${heroState?`, ${heroState}`:''}`;
+ return `<section class="section summary-card"><div class="section-head"><h2 class="section-title">투자 현황</h2>${allowCurrency?currencyControl():''}</div><div class="summary-group"><div class="hero-row"><div><div class="hero-label-line"><div class="eyebrow">${heroLabel}</div>${heroState?`<span class="summary-state-chip ${fixture}">${heroState}</span>`:''}</div><div class="hero-value ${incomplete?'missing':''}" aria-label="${heroAria}">${hero}</div></div></div><div class="metric-grid"><div><div class="metric-label">일일 수익</div><div class="metric-value ${unavailable?'missing':financialClass(summary.daily)}" aria-label="일일 수익, ${daily}${unavailable?'':`, ${rateSemantic(summary.dailyRate)}`}">${daily}</div><div class="metric-sub ${unavailable?'missing':financialClass(summary.dailyRate)}">${unavailable?'—':pctChip(summary.dailyRate)}</div></div><div><div class="metric-label">총 손익</div><div class="metric-value ${unavailable?'missing':financialClass(summary.profit)}" aria-label="총 손익, ${total}${unavailable?'':`, ${rateSemantic(summary.profitRate)}`}">${total}</div><div class="metric-sub ${unavailable?'missing':financialClass(summary.profitRate)}">${unavailable?'—':pctChip(summary.profitRate)}</div></div></div></div></section>`;
+}
+// Allocation is derived from current Prototype fixture Scope. It is not a Production allocation contract.
+const lensLabels={asset:'자산별',stock:'종목별',country:'국가별',sector:'섹터별'};
+function derivedAllocationItems(p,lens){
+ const field=lens==='asset'?'type':lens==='stock'?'id':lens==='country'?'country':'sector';
+ return p.holdings.filter(h=>h.qty>0).map(h=>({key:h[field]||'기타',name:lens==='stock'?(h.ticker||h.name):(h[field]||'기타'),value:h.value}));
+}
+function allocationRows(portfolios=currentPortfolios(),lens=current.lens){
+ // A single Reference Portfolio must preserve the screenshot percentages exactly, including its 0.1pp rounding residue.
+ if(portfolios.length===1&&portfolios[0].referenceAllocation?.[lens]){
+  const p=portfolios[0];
+  return p.referenceAllocation[lens].rows.map(r=>[r.name,r.weight,portfolioSummaryValue(p)*(r.weight/100),r.id||r.name,p.referenceAllocation[lens].status]);
+ }
+ const groups=new Map();
+ portfolios.forEach(p=>{
+  const ref=p.referenceAllocation?.[lens];
+  if(ref){
+   ref.rows.forEach(r=>{const key=lens==='stock'?(r.id||r.name):r.name;const prev=groups.get(key)||{name:r.name,value:0};prev.value+=portfolioSummaryValue(p)*(r.weight/100);groups.set(key,prev)});
+  }else{
+   derivedAllocationItems(p,lens).forEach(r=>{const prev=groups.get(r.key)||{name:r.name,value:0};prev.value+=r.value;groups.set(r.key,prev)});
+  }
+ });
+ const total=[...groups.values()].reduce((s,r)=>s+r.value,0);
+ return [...groups.values()].map(r=>[r.name,total?r.value/total*100:0,r.value,r.name,'MIXED_DERIVED']).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],'ko'));
+}
+function isReferenceOnly(portfolios=currentPortfolios()){return portfolios.length===1&&portfolios[0].fixtureKind==='REFERENCE';}
+function allocationDisplayRows(rows,detail=false,portfolios=currentPortfolios()){
+ if(detail)return rows;
+ // Reference 종목별 Dashboard: user-requested Top 5 + 기타 compression.
+ if(isReferenceOnly(portfolios)&&current.lens==='stock'&&rows.length>6){
+  const assets=rows.filter(r=>r[0]!=='기타'); const sourceOther=rows.filter(r=>r[0]==='기타');
+  const head=assets.slice(0,5); const tail=[...assets.slice(5),...sourceOther];
+  const pctSum=tail.reduce((s,r)=>s+r[1],0); const valueSum=tail.reduce((s,r)=>s+r[2],0);
+  return [...head,['기타',pctSum,valueSum,'reference-compressed-other','SOURCE_DERIVED']];
+ }
+ if(rows.length<=5)return rows;
+ const explicitOther=rows.filter(r=>r[0]==='기타');const nonOther=rows.filter(r=>r[0]!=='기타');const head=nonOther.slice(0,4);const tail=[...nonOther.slice(4),...explicitOther];const pctSum=tail.reduce((s,r)=>s+r[1],0);const valueSum=tail.reduce((s,r)=>s+r[2],0);return [...head,['기타',pctSum,valueSum,'compressed-other','DERIVED']];
+}
+function allocationGradient(rows){let cursor=0;const totalPct=rows.reduce((s,r)=>s+r[1],0)||100;const stops=[];rows.forEach((r,i)=>{const normalized=r[1]/totalPct*100;const start=cursor;cursor+=normalized;const color=allocationPalette[i%allocationPalette.length];stops.push(`${color} ${start.toFixed(3)}% ${cursor.toFixed(3)}%`)});if(cursor<100)stops.push(`#303036 ${cursor.toFixed(3)}% 100%`);return `conic-gradient(${stops.join(',')})`;}
+function allocationChart(rows,detail=false,portfolios=currentPortfolios()){const visible=allocationDisplayRows(rows,detail,portfolios);const summary=`${lensLabels[current.lens]} 투자 비중: ${visible.map(([n,p])=>`${n} ${p.toFixed(1)}%`).join(', ')}`;const gradient=allocationGradient(visible);return `<div class="allocation-visual ${detail?'detail':''}"><div class="allocation-chart-wrap"><div class="allocation-chart ${allocationVisual}" role="img" aria-label="${summary}" style="background:${gradient}">${allocationVisual==='donut'?`<div class="allocation-center" aria-hidden="true"><strong>100%</strong><span>${lensLabels[current.lens]}</span></div>`:''}</div></div><div class="allocation-legend">${visible.map(([n,p],i)=>`<div class="legend-item"><span class="legend-dot" aria-hidden="true" style="background:${allocationPalette[i%allocationPalette.length]}"></span><span class="legend-name">${n}</span><span class="legend-value">${p.toFixed(1)}%</span></div>`).join('')}</div></div>`;}
+function allocationModule(detail=false,portfolios=currentPortfolios()){
+ if(fixture==='allocation-error')return `<section class="section allocation-card"><div class="section-head"><h2 class="section-title">투자 비중</h2></div><div class="module-state" role="status"><strong>투자 비중을 불러오지 못했습니다</strong><span>투자 현황은 그대로 확인할 수 있습니다.</span></div></section>`;
+ const rows=fixture==='empty-holdings'?[]:allocationRows(portfolios,current.lens);
+ const expanded=!detail&&current.allocationExpanded;
+ const renderFull=detail||expanded;
+ const visible=allocationDisplayRows(rows,renderFull,portfolios);
+ const canExpand=!detail&&rows.length>allocationDisplayRows(rows,false,portfolios).length;
+ const action=canExpand||expanded?`<div class="section-footer"><button class="text-action allocation-more-action allocation-toggle-action" data-action="allocation-toggle" aria-expanded="${expanded}">${expanded?'닫기':'전체 보기'}<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${expanded?'m18 15-6-6-6 6':'m6 9 6 6 6-6'}"></path></svg></button></div>`:'';
+ return `<section class="section allocation-card ${expanded?'is-expanded':''}"><div class="section-head"><h2 class="section-title">투자 비중</h2></div><div class="lens-tabs" role="tablist" aria-label="투자 비중 기준">${Object.entries(lensLabels).map(([k,v])=>`<button class="lens choice-chip" role="tab" tabindex="${current.lens===k?0:-1}" aria-selected="${current.lens===k}" data-action="lens" data-lens="${k}"><span class="lens-chip">${v}</span></button>`).join('')}</div>${!rows.length?`<div class="module-state"><strong>표시할 투자 비중이 없습니다</strong><span>현재 선택 범위에 분류 가능한 보유 종목이 없습니다.</span></div>`:allocationChart(rows,renderFull,portfolios)}${action}</section>`;
+}
+function holdingRow(h,preview=false,sourceScreen='F03',context='aggregate',portfolioId=null){const value=money(h.value),outcome=money(h.profit,current.currency,true),rate=Number.isFinite(h.profitRate)?pct(h.profitRate):'—',rowId=context==='aggregate'?(h.aggregateKey||h.id):h.id;return `<button class="row-button" data-action="holding" data-id="${rowId}" data-source="${sourceScreen}" data-context="${context}" ${portfolioId?`data-portfolio="${portfolioId}"`:''} aria-label="${h.name}, 평가금액 ${value}, 총 손익 ${outcome}, 총 수익률 ${rate}"><div class="holding-row"><div class="row-identity">${h.name}</div><div class="row-value">${value}</div><div class="row-meta">${h.qty.toLocaleString()}주${preview?'':` · 비중 ${h.weight??'—'}%`}</div><div class="row-outcome ${financialClass(h.profit)}">${outcome} (${rate})</div></div></button>`;}
+function holdingsForAggregate(){
+ const ps=fixturePortfolioData();let hs=aggregateHoldings(ps);const total=summaryFor(ps).value;hs.forEach(h=>h.weight=total?h.value/total*100:0);return hs;
+}
+function holdingsSection(preview=true,individual=null){
+ if(fixture==='holdings-error')return `<section class="section holdings-section"><div class="section-head"><h2 class="section-title">보유 종목</h2></div><div class="module-state"><strong>보유 종목을 불러오지 못했습니다</strong><span>투자 현황과 투자 비중은 계속 확인할 수 있습니다.</span></div></section>`;
+ let hs=individual?individual.holdings.filter(h=>h.qty>0).map(h=>({...h})).sort((a,b)=>a.name.localeCompare(b.name,'ko')):holdingsForAggregate().map(h=>({...h}));
+ if(fixture==='empty-holdings')hs=[];
+ const total=hs.reduce((sum,h)=>sum+h.value,0);hs.forEach(h=>h.weight=Number(h.weight??(total?h.value/total*100:0)).toFixed(1));
+ if(!hs.length)return `<section class="section holdings-section"><div class="section-head"><h2 class="section-title">보유 종목</h2></div><div class="module-state"><strong>보유 종목이 없습니다</strong><span>${individual?'종목을 추가하면 이곳에서 확인할 수 있습니다.':'현재 선택한 범위에 보유 종목이 없습니다.'}</span></div></section>`;
+ const isOverview=current.screen==='F01'&&!individual;
+ if(isOverview)hs.sort((a,b)=>b.value-a.value||a.name.localeCompare(b.name,'ko'));
+ const overviewExpanded=isOverview&&current.overviewHoldingsExpanded;
+ const shown=isOverview?(overviewExpanded?hs:hs.slice(0,5)):(preview?hs.slice(0,4):hs);
+ const context=individual?'individual':'aggregate';
+ const overviewToggle=isOverview&&hs.length>5?`<div class="section-footer section-more-footer"><button class="text-action section-more-action" data-action="holdings-toggle" aria-expanded="${overviewExpanded}"><span>${overviewExpanded?'닫기':'전체 보유 종목 보기'}</span><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${overviewExpanded?'m18 15-6-6-6 6':'m6 9 6 6 6-6'}"></path></svg></button></div>`:'';
+ const more=!isOverview&&preview&&hs.length>4?`<div class="section-footer"><button class="text-action" data-action="navigate" data-screen="${individual?'F09':'F03'}">전체 보유 종목 보기</button></div>`:'';
+ const orderLabel=isOverview?'평가금액 높은 순':'가나다 순';
+ return `<section class="section holdings-section"><div class="section-head"><h2 class="section-title">보유 종목</h2><span class="section-caption">${orderLabel}</span></div><div class="list holdings-list">${shown.map(h=>holdingRow(h,preview,individual?'F09':'F03',context,individual?.id||null)).join('')}</div>${overviewToggle}${more}</section>${isOverview?`<div class="section-divider-8" aria-hidden="true"></div>`:''}`;
+}
+function updatePortfolios(){return current.updateScopeIds?.length?portfoliosByIds(current.updateScopeIds):currentPortfolios();}
+function scopedUpdates(portfolios=updatePortfolios()){
+ if(fixture==='updates-empty')return [];
+ const heldIds=new Set(activeHoldings(portfolios).map(h=>h.id));let u=data.updates.filter(x=>heldIds.has(x.assetId));
+ if(current.updateFilter!=='전체')u=u.filter(x=>x.type===current.updateFilter);
+ if(current.updateFilter==='일정')u.sort((a,b)=>new Date(a.displayTs)-new Date(b.displayTs));else u.sort((a,b)=>new Date(b.displayTs)-new Date(a.displayTs));
+ return u;
+}
+function updateMeaningLabel(){return current.updateFilter==='일정'?'예정일순 · 현재 선택 범위 기준':'최신순 · 현재 선택 범위 기준';}
+function updateTagData(u,portfolios=updatePortfolios()){
+ const related=activeHoldings(portfolios).find(h=>h.id===u.assetId);
+ const field=related?.sector||u.type;
+ return {field,asset:u.asset};
+}
+function updateRow(u,portfolios=updatePortfolios(),contextLabel=current.updateScopeLabel||scopeText()){
+ const ids=portfolios.map(p=>p.id).join(',');
+ const tags=updateTagData(u,portfolios);
+ return `<button class="update-button" data-action="update" data-id="${u.id}" data-update-scope="${ids}" data-update-label="${contextLabel}"><div class="update-row"><div class="update-title">${u.title}</div><div class="update-excerpt">${u.body}</div><div class="update-meta">${u.source} · ${u.meta}</div><div class="update-tags"><span class="update-tag">${tags.field}</span><span class="update-tag related">${tags.asset}</span></div></div></button>`;
+}
+function updatesSection(preview=true,portfolios=currentPortfolios(),contextLabel=scopeText()){
+ if(fixture==='updates-error')return `<section class="section updates-section"><div class="section-head updates-head"><div><h2 class="section-title">종목 뉴스</h2></div></div><div class="module-state"><strong>종목 뉴스를 불러오지 못했습니다</strong><span>투자 현황은 계속 확인할 수 있습니다.</span></div></section>`;
+ const us=scopedUpdates(portfolios);const ids=portfolios.map(p=>p.id).join(',');const overviewMore=preview&&(current.screen==='F01'||current.screen==='F07');
+ return `<section class="section updates-section"><div class="section-head updates-head"><div><h2 class="section-title">종목 뉴스</h2></div></div>${!us.length?`<div class="module-state"><strong>새 종목 뉴스가 없습니다</strong><span>현재 선택한 포트폴리오에서 표시할 종목 뉴스가 없습니다.</span></div>`:`<div class="update-list">${us.slice(0,preview?3:999).map(u=>updateRow(u,portfolios,contextLabel)).join('')}</div>`}${preview&&us.length?`<div class="section-footer ${overviewMore?'section-more-footer':''}"><button class="text-action ${overviewMore?'section-more-action':''}" data-action="updates-all" data-update-scope="${ids}" data-update-label="${contextLabel}">전체 뉴스 보기</button></div>`:''}</section>`;
+}
+function noPortfolioState(){return `<div class="state-panel"><div class="state-title">포트폴리오가 없습니다</div><p class="state-copy">포트폴리오를 추가한 뒤 모아보기와 포트폴리오 관리 기능을 사용할 수 있습니다.</p><button class="btn btn-primary" data-action="navigate" data-screen="F11">포트폴리오 추가</button></div>`}
+function renderF01(){
+ if(fixture==='no-portfolio')return `<div class="page"><div class="root-header"><h1 class="screen-title">투자분석</h1></div>${rootTabs('overview')}${overviewScopeHeader(true)}${noPortfolioState()}</div>`;
+ const ps=fixturePortfolioData(),s=summaryFor(ps);
+ return `<div class="page"><div class="root-header"><h1 class="screen-title">투자분석</h1></div>${rootTabs('overview')}${overviewScopeHeader()}${stateNotice()}${financialSummary(s,true)}${fixture==='page-error'?'':allocationModule(false,ps)}${fixture==='page-error'?'':holdingsSection(true)}${fixture==='page-error'?'':updatesSection(true,ps,scopeText())}</div>`;
+}
+function sortedAggregateHoldings(){const hs=holdingsForAggregate().map(h=>({...h}));if(current.holdingSort==='value-desc')return hs.sort((a,b)=>b.value-a.value||a.name.localeCompare(b.name,'ko'));if(current.holdingSort==='value-asc')return hs.sort((a,b)=>a.value-b.value||a.name.localeCompare(b.name,'ko'));return hs.sort((a,b)=>a.name.localeCompare(b.name,'ko'));}
+function renderF03(){const hs=sortedAggregateHoldings();return `<div class="page">${detailHeader('전체 보유 종목')}<div class="page-context"><h2 class="context-title">${scopeText()}</h2></div><section class="section"><div class="section-head"><h2 class="section-title">전체 보유 종목</h2><select class="currency-select" aria-label="보유 종목 정렬" data-action="holdings-sort"><option value="name" ${current.holdingSort==='name'?'selected':''}>가나다 순</option><option value="value-desc" ${current.holdingSort==='value-desc'?'selected':''}>평가금액 높은 순</option><option value="value-asc" ${current.holdingSort==='value-asc'?'selected':''}>평가금액 낮은 순</option></select></div><div class="list holdings-list">${hs.map(h=>holdingRow({...h,weight:(h.weight).toFixed(1)},false,'F03','aggregate')).join('')}</div></section></div>`;}
+function findAggregateHolding(id){return holdingsForAggregate().find(h=>(h.aggregateKey||h.id)===id||h.id===id)}
+function findIndividualHolding(id,portfolioId=current.portfolioId){return data.portfolios.find(p=>p.id===portfolioId)?.holdings.find(h=>h.id===id&&h.qty>0)||null;}
+function holdingUnitKRW(h,kind){
+ if(kind==='avg'){
+  const cost=holdingCostBasisKRW(h);return Number.isFinite(cost)&&h.qty>0?cost/h.qty:null;
+ }
+ if(kind==='price'){
+  if(Number.isFinite(h.localPriceKRW))return h.localPriceKRW;
+  if(h.country==='미국'&&Number.isFinite(h.localPrice))return h.localPrice*REFERENCE_FIXTURE_USD_KRW;
+  return Number.isFinite(h.price)?h.price:null;
+ }
+ return null;
+}
+function holdingUnitDisplay(h,kind){
+ const krw=holdingUnitKRW(h,kind);if(!Number.isFinite(krw))return '—';
+ if(current.currency==='USD'){
+  if(kind==='avg'){const local=holdingLocalAverage(h);if(Number.isFinite(local))return fmtUSD(local);}
+  if(kind==='price'&&Number.isFinite(h.localPrice))return fmtUSD(h.localPrice);
+  return fmtUSD(krw/REFERENCE_FIXTURE_USD_KRW);
+ }
+ return fmtKRW(krw);
+}
+function sourceAverageDisplay(s){
+ if(current.currency==='USD'){
+  if(Number.isFinite(s.localAvg))return fmtUSD(s.localAvg);
+  if(Number.isFinite(s.costBasisKRW)&&s.qty>0)return fmtUSD((s.costBasisKRW/s.qty)/REFERENCE_FIXTURE_USD_KRW);
+  return '—';
+ }
+ return Number.isFinite(s.costBasisKRW)&&s.qty>0?fmtKRW(s.costBasisKRW/s.qty):'—';
+}
+function renderF04(){
+ const isIndividual=current.holdingContext==='individual';const p=isIndividual?data.portfolios.find(x=>x.id===current.portfolioId):null;const h=isIndividual?findIndividualHolding(current.holdingId,current.portfolioId):(findAggregateHolding(current.holdingId)||holdingsForAggregate()[0]);
+ current.holdingId=isIndividual?h?.id:(h?.aggregateKey||h?.id);
+ if(!h)return `<div class="page">${detailHeader('보유 종목 상세')}<div class="state-panel"><div class="state-title">보유 정보를 찾을 수 없습니다</div></div></div>`;
+ const avgLabel=holdingUnitDisplay(h,'avg');const currentPrice=holdingUnitDisplay(h,'price');const contextText=isIndividual?`포트폴리오 · ${p?.name||''}`:`모아보기 · ${currentPortfolios().length===1?currentPortfolios()[0]?.name:`${currentPortfolios().length}개 포트폴리오`}`;
+ return `<div class="page">${detailHeader('보유 종목 상세')}<div class="detail-body"><div class="detail-context">${contextText}</div><div class="asset-heading"><h2 class="asset-name">${h.name}</h2><div class="asset-sub">${h.ticker} · ${h.country} · ${h.sector}</div></div><div class="detail-financial-head"><div class="eyebrow">평가금액</div>${currencyControl()}</div><div class="detail-hero" aria-label="평가금액, ${money(h.value,current.currency)}">${money(h.value,current.currency)}</div><dl class="metric-list"><div class="metric-row"><dt>총 손익 / 총 수익률</dt><dd class="${financialClass(h.profit)}" aria-label="총 손익 ${money(h.profit,current.currency,true)}, 총 수익률 ${pct(h.profitRate)}">${money(h.profit,current.currency,true)} · ${pct(h.profitRate)}</dd></div><div class="metric-row"><dt>보유 수량</dt><dd>${h.qty.toLocaleString()}주</dd></div><div class="metric-row"><dt>평균단가</dt><dd>${avgLabel}</dd></div><div class="metric-row"><dt>현재가</dt><dd>${currentPrice}</dd></div><div class="metric-row"><dt>일일 움직임</dt><dd class="${financialClass(h.daily)}">${pct(h.daily)}</dd></div></dl>${isIndividual?`<div class="detail-actions"><button class="edit-action detail-edit" data-action="edit" data-portfolio="${p.id}" data-holding="${h.id}">보유 정보 수정</button></div>`:`<section class="portfolio-provenance"><button class="portfolio-breakdown-trigger" aria-expanded="false" data-action="breakdown"><span class="portfolio-breakdown-copy"><span class="portfolio-breakdown-title">포트폴리오별 보유</span><span class="portfolio-breakdown-summary-text">${h.sources.length}개 포트폴리오 · 총 ${h.qty.toLocaleString()}주</span></span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button><div id="breakdown-slot"></div></section>`}</div></div>`;
+}
+function renderBreakdown(){
+ const h=findAggregateHolding(current.holdingId);if(!h)return '';
+ return `<div class="breakdown"><div class="breakdown-summary"><strong>${h.sources.length}개 포트폴리오에 분산 보유</strong><span>총 ${h.qty.toLocaleString()}주</span></div>${h.sources.map(s=>{const avg=sourceAverageDisplay(s);const value=money(s.value,current.currency);const outcome=money(s.profit,current.currency,true);return `<div class="breakdown-row"><div><div class="breakdown-title">${s.portfolioName}</div><div class="breakdown-meta">${s.qty.toLocaleString()}주 · 평균단가 ${avg}</div></div><div class="breakdown-financial"><div class="breakdown-value">${value}</div><div class="breakdown-outcome ${financialClass(s.profit)}">${outcome} · ${pct(s.profitRate)}</div></div><div class="breakdown-actions"><button class="portfolio-link-action" data-action="portfolio-view" data-id="${s.portfolioId}">포트폴리오 보기<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><button class="edit-action" data-action="edit" data-portfolio="${s.portfolioId}" data-holding="${s.holdingId||h.id}">수정</button></div></div>`}).join('')}</div>`;
+}
+function renderF05(){const ps=updatePortfolios(),us=scopedUpdates(ps),label=current.updateScopeLabel||scopeText();return `<div class="page">${detailHeader('종목 뉴스')}<div class="page-context"><h2 class="context-title">${label}</h2></div><section class="section"><div class="filter-scroll"><div class="filters" role="tablist" aria-label="뉴스 유형">${['전체','뉴스','공시','일정','주요 이벤트','분석'].map(f=>`<button class="filter-tab" role="tab" tabindex="${current.updateFilter===f?0:-1}" aria-selected="${current.updateFilter===f}" data-action="update-filter" data-filter="${f}">${f}</button>`).join('')}</div></div>${fixture==='updates-error'?`<div class="module-state"><strong>종목 뉴스를 불러오지 못했습니다</strong><span>다른 포트폴리오 정보에는 영향이 없습니다.</span></div>`:(!us.length?`<div class="module-state"><strong>새 종목 뉴스가 없습니다</strong><span>현재 범위와 필터에서 표시할 종목 뉴스가 없습니다.</span></div>`:us.map(u=>updateRow(u,ps,label)).join(''))}</section></div>`;}
+function renderF06(){const u=data.updates.find(x=>x.id===current.updateId)||data.updates[0];const label=current.updateScopeLabel||scopeText();const tags=updateTagData(u,updatePortfolios());return `<div class="page">${detailHeader('종목 뉴스 상세')}<div class="detail-body"><div class="detail-context">${label}</div><h2 class="asset-name update-detail-title">${u.title}</h2><div class="update-detail-content"><p>${u.body}</p></div><div class="update-meta update-detail-meta">${u.source} · ${u.meta}</div><div class="update-tags"><span class="update-tag">${tags.field}</span><span class="update-tag related">${tags.asset}</span></div></div></div>`;}
+function renderPortfolioComparison(){
+ if(current.comparison==='asset'){const hs=holdingsForAggregate().slice(0,6);return hs.map(h=>{const value=money(h.value),outcome=money(h.profit,current.currency,true);const id=h.aggregateKey||h.id;return `<button class="row-button" data-action="holding" data-id="${id}" data-source="F07" data-context="aggregate" aria-label="${h.name}, 평가금액 ${value}, 총 손익 ${outcome}, 보유 상세 보기"><div class="portfolio-row"><div class="row-identity">${h.name}</div><div class="row-value">${value}</div><div class="row-meta">${h.sources.length}개 포트폴리오</div><div class="row-outcome ${financialClass(h.profit)}">${outcome} (${pct(h.profitRate)})</div></div></button>`}).join('')}
+ return data.portfolios.map(p=>{const s=summaryFor([p]),value=money(s.value),daily=money(p.daily,current.currency,true),profit=money(p.profit,current.currency,true);return `<button class="row-button" data-action="portfolio" data-id="${p.id}" aria-label="${p.name}, 평가금액 ${value}, 일일 수익 ${daily}, 총 손익 ${profit}, 총 수익률 ${pct(p.profitRate)}"><div class="portfolio-row"><div class="row-identity">${p.name}</div><div class="row-value">${value}</div><div class="row-meta">${p.holdings.filter(h=>h.qty>0).length}개 종목 · 일일 ${daily}</div><div class="row-outcome ${financialClass(p.profit)}">${profit} (${pct(p.profitRate)})</div></div></button>`}).join('')
+}
+function renderF07(){
+ if(fixture==='no-portfolio')return `<div class="page"><div class="root-header"><h1 class="screen-title">투자분석</h1></div>${rootTabs('portfolio')}${noPortfolioState()}</div>`;
+ const selected=portfolioViewPortfolio();
+ if(selected){
+  const sum=summaryFor([selected]);
+  return `<div class="page portfolio-view-individual"><div class="root-header"><h1 class="screen-title">투자분석</h1></div>${rootTabs('portfolio')}${portfolioContextHeader()}${financialSummary(sum,true)}<div class="individual-portfolio-holdings">${holdingsSection(false,selected)}</div><div class="portfolio-view-actions"><button class="btn btn-primary full-cta" data-action="portfolio-add-holding" data-id="${selected.id}">${img(ICONS.add)}종목 추가</button></div>${updatesSection(true,[selected],selected.name)}</div>`;
+ }
+ const sum=summaryFor(data.portfolios);
+ return `<div class="page"><div class="root-header"><h1 class="screen-title">투자분석</h1></div>${rootTabs('portfolio')}${portfolioContextHeader()}${financialSummary(sum,true)}${allocationModule(false,data.portfolios)}<section class="section"><div class="section-head"><h2 class="section-title">포트폴리오 비교</h2></div><div class="comparison-tabs" role="tablist" aria-label="포트폴리오 비교 기준"><button class="filter-tab" role="tab" tabindex="${current.comparison==='portfolio'?0:-1}" aria-selected="${current.comparison==='portfolio'}" data-action="comparison" data-mode="portfolio">포트폴리오별</button><button class="filter-tab" role="tab" tabindex="${current.comparison==='asset'?0:-1}" aria-selected="${current.comparison==='asset'}" data-action="comparison" data-mode="asset">종목별</button></div><div class="list">${renderPortfolioComparison()}</div><div class="section-footer"><button class="text-action" data-action="navigate" data-screen="F11">포트폴리오 추가</button></div></section>${updatesSection(true,data.portfolios,'모든 포트폴리오')}</div>`;
+}
+function renderF08(){const p=data.portfolios.find(x=>x.id===current.portfolioId)||data.portfolios[0];const s=summaryFor([p]);return `<div class="page">${detailHeader(p.name)}<div class="page-context"><h2 class="context-title">${p.name}</h2></div>${financialSummary(s,true)}<div class="individual-portfolio-holdings">${holdingsSection(false,p)}</div><div class="sticky-cta"><button class="btn btn-primary full-cta" data-action="navigate" data-screen="F12">${img(ICONS.add)}종목 추가</button></div></div>`}
+function renderF09(){const p=data.portfolios.find(x=>x.id===current.portfolioId)||data.portfolios[0];const hs=p.holdings.filter(h=>h.qty>0).sort((a,b)=>a.name.localeCompare(b.name,'ko'));const total=hs.reduce((s,h)=>s+h.value,0);return `<div class="page">${detailHeader('보유 종목')}<div class="page-context"><h2 class="context-title">${p.name}</h2></div><section class="section"><div class="section-head"><h2 class="section-title">전체 보유 종목</h2><span class="section-caption">가나다 순</span></div><div class="list holdings-list">${hs.map(h=>holdingRow({...h,weight:Number(h.weight??(total?h.value/total*100:0)).toFixed(1)},false,'F09','individual',p.id)).join('')}</div></section></div>`;}
+function renderF10(){return `<div class="page">${detailHeader('투자 비중')}<div class="page-context"><h2 class="context-title">${scopeText()}</h2></div>${allocationModule(true,fixturePortfolioData())}</div>`;}
+function renderF11(){return `<div class="page">${detailHeader('포트폴리오 추가')}<div class="detail-body"><div class="form"><div class="field"><label for="pf-name">포트폴리오 이름</label><input id="pf-name" maxlength="32" autocomplete="off" placeholder="예: 배당 성장"/><div class="field-help">현재 Concept에서는 포트폴리오 이름만 입력합니다.</div><div class="field-error" id="pf-name-error"></div></div><button class="btn btn-primary full-cta" data-action="create-portfolio">포트폴리오 추가</button></div></div></div>`}
+const assetCatalog=[{id:'kakao',name:'카카오',ticker:'035720',price:59200,type:'주식',country:'한국',sector:'인터넷'},{id:'nvda',name:'NVIDIA',ticker:'NVDA',price:186000,type:'주식',country:'미국',sector:'반도체',localPrice:134.8},{id:'kospi200',name:'KODEX 200',ticker:'069500',price:37800,type:'ETF',country:'한국',sector:'지수'}];
+function renderF12(){const p=data.portfolios.find(x=>x.id===current.portfolioId)||data.portfolios[0];return `<div class="page">${detailHeader('종목 추가')}<div class="page-context"><h2 class="context-title">${p.name}</h2></div><div class="detail-body"><div class="form"><div class="field"><label for="asset-search">종목 검색</label><div class="search-box">${img(ICONS.search)}<input id="asset-search" autocomplete="off" placeholder="종목명 또는 티커"/></div><div class="search-results" id="search-results">${assetCatalog.map(a=>`<button class="search-result" data-action="select-asset" data-id="${a.id}"><strong>${a.name}</strong><span>${a.ticker} · ${a.type}</span></button>`).join('')}</div><div id="selected-asset"></div></div><div class="field"><label for="add-qty">보유 수량</label><input id="add-qty" inputmode="decimal" type="number" min="0" step="0.01" placeholder="0" disabled/><div class="field-error" id="add-qty-error"></div></div><div class="field"><label for="add-avg">평균단가</label><input id="add-avg" inputmode="decimal" type="number" min="0" step="0.01" placeholder="0" disabled/><div class="field-error" id="add-avg-error"></div></div><button class="btn btn-primary full-cta" data-action="add-holding">종목 추가</button><div class="field-help">현재 보유 수량과 평균단가를 기준으로 종목을 추가합니다.</div></div></div></div>`}
+function renderF13(){const p=data.portfolios.find(x=>x.id===current.portfolioId);const h=p?.holdings.find(x=>x.id===current.holdingId);if(!p||!h)return `<div class="page">${detailHeader('보유 정보 수정')}<div class="state-panel"><div class="state-title">수정할 보유 정보를 찾을 수 없습니다</div></div></div>`;return `<div class="page">${detailHeader('보유 정보 수정')}<div class="page-context"><h2 class="context-title">${h.name}</h2></div><div class="detail-body"><div class="form"><div class="field"><label for="edit-qty">보유 수량</label><input id="edit-qty" type="number" min="0" step="0.01" value="${h.qty}"/><div class="field-help">기존 Holding은 0으로 저장할 수 있으며 현재 보유 목록에서 숨겨집니다.</div><div class="field-error" id="edit-qty-error"></div></div><div class="field"><label for="edit-avg">평균단가</label><input id="edit-avg" type="number" min="0" step="0.01" value="${h.country==='미국'?(h.localAvg??h.avg):h.avg}"/><div class="field-error" id="edit-avg-error"></div></div><button class="btn btn-primary full-cta" data-action="save-holding">저장</button></div></div></div>`}
+function renderWatchlist(){return `<div class="page"><div class="root-header"><h1 class="screen-title">투자분석</h1></div>${rootTabs('watchlist')}<div class="watchlist-placeholder"><div class="proto-only">이번 프로토타입에서는 관심종목 상세 화면을 구현하지 않았습니다.</div><div class="state-title" style="text-align:left">관심종목</div><p class="state-copy" style="text-align:left;margin-left:0">상단 탐색 구조만 확인할 수 있습니다. 관심종목 상세 기능은 현재 범위에 포함되지 않습니다.</p></div></div>`}
+function render(options={}){const previousY=window.scrollY;const app=document.getElementById('app');let html='';switch(current.screen){case'F01':html=renderF01();break;case'F03':html=renderF03();break;case'F04':html=renderF04();break;case'F05':html=renderF05();break;case'F06':html=renderF06();break;case'F07':html=renderF07();break;case'F08':html=renderF08();break;case'F09':html=renderF09();break;case'F10':html=renderF10();break;case'F11':html=renderF11();break;case'F12':html=renderF12();break;case'F13':html=renderF13();break;case'WATCH':html=renderWatchlist();break;default:html=renderF01()}app.innerHTML=html;document.getElementById('overlay-root').innerHTML='';if(debug)renderDebug();const target=Number.isFinite(options.restoreY)?options.restoreY:(options.scroll==='top'?0:previousY);requestAnimationFrame(()=>window.scrollTo({top:target,left:0,behavior:'auto'}));}
+function push(screen,extra={}){nav.push({...current,__scrollY:window.scrollY});Object.assign(current,extra,{screen});render({scroll:'top'})}
+function back(){if(nav.length){const prev=nav.pop();const y=Number.isFinite(prev.__scrollY)?prev.__scrollY:0;delete prev.__scrollY;current=prev;render({restoreY:y})}else{current.screen='F01';render({scroll:'top'})}}
+let scopeTriggerEl=null;
+
+function openPortfolioPicker(){scopeTriggerEl=document.activeElement;portfolioPickerOpen=true;document.getElementById('app').inert=true;renderPortfolioPicker();}
+function renderPortfolioPicker(focusId=null){
+ const overlay=document.getElementById('overlay-root');
+ const options=[{id:'all',name:'모든 포트폴리오',meta:`${data.portfolios.length}개 포트폴리오`},...data.portfolios.map(p=>({id:p.id,name:p.name,meta:`${p.holdings.filter(h=>h.qty>0).length}개 종목`}))];
+ overlay.innerHTML=`<div class="sheet-layer" role="presentation"><section class="sheet" role="dialog" aria-modal="true" aria-labelledby="portfolio-picker-title"><div class="sheet-handle"></div><div class="sheet-head"><div id="portfolio-picker-title" class="sheet-title">포트폴리오 선택</div><button class="icon-button" data-action="close-portfolio-picker" aria-label="닫기">${img(ICONS.close)}</button></div><div class="sheet-content">${options.map(o=>`<button class="choice-row" role="radio" aria-checked="${current.portfolioViewId===o.id}" data-action="portfolio-view-select" data-id="${o.id}"><span><span class="choice-title">${o.name}</span><span class="choice-meta">${o.meta}</span></span><span class="choice-control">${current.portfolioViewId===o.id?squareCheckImg():''}</span></button>`).join('')}</div></section></div>`;
+ setTimeout(()=>{const target=focusId?overlay.querySelector(`[data-action="portfolio-view-select"][data-id="${focusId}"]`):overlay.querySelector('[role="radio"][aria-checked="true"]')||overlay.querySelector('[role="dialog"] button');target?.focus()},0);
+}
+function closePortfolioPicker(restore=true){document.getElementById('overlay-root').innerHTML='';document.getElementById('app').inert=false;portfolioPickerOpen=false;if(restore)setTimeout(()=>scopeTriggerEl?.focus?.({preventScroll:true}),0);}
+function openScope(){scopeTriggerEl=document.activeElement;sheetDraft=[...current.scope];document.getElementById('app').inert=true;renderScopeSheet();}
+function renderScopeSheet(focusPortfolioId=null){const overlay=document.getElementById('overlay-root');overlay.innerHTML=`<div class="sheet-layer" role="presentation"><section class="sheet" role="dialog" aria-modal="true" aria-labelledby="scope-title"><div class="sheet-handle"></div><div class="sheet-head"><div id="scope-title" class="sheet-title">포트폴리오 선택</div><button class="icon-button" data-action="close-sheet" aria-label="닫기">${img(ICONS.close)}</button></div><div class="sheet-content">${data.portfolios.map(p=>`<button class="choice-row" role="checkbox" aria-checked="${sheetDraft.includes(p.id)}" data-action="scope-toggle" data-id="${p.id}"><span><span class="choice-title">${p.name}</span><span class="choice-meta">${p.holdings.filter(h=>h.qty>0).length}개 종목</span></span><span class="choice-control">${sheetDraft.includes(p.id)?squareCheckImg():''}</span></button>`).join('')}<div class="sheet-guidance" ${sheetDraft.length?'hidden':''}>포트폴리오를 1개 이상 선택해 주세요.</div></div><div class="sheet-foot"><button class="btn btn-primary full-cta" data-action="scope-apply" ${sheetDraft.length?'':'disabled'}>적용하기</button></div></section></div>`;setTimeout(()=>{const target=focusPortfolioId?overlay.querySelector(`[data-action="scope-toggle"][data-id="${focusPortfolioId}"]`):overlay.querySelector('[role="dialog"] button');target?.focus()},0);}
+function closeScope(restore=true){document.getElementById('overlay-root').innerHTML='';document.getElementById('app').inert=false;sheetDraft=null;if(restore)setTimeout(()=>scopeTriggerEl?.focus?.({preventScroll:true}),0);}
+function sheetFocusable(){const sheet=document.querySelector('.sheet');return sheet?[...sheet.querySelectorAll('button:not([disabled]),input:not([disabled]),select:not([disabled]),[href],[tabindex]:not([tabindex="-1"])')].filter(el=>!el.hidden&&el.offsetParent!==null):[]}
+function renderDebug(){let panel=document.querySelector('.debug-panel');if(panel)panel.remove();panel=document.createElement('div');panel.className='debug-panel';panel.innerHTML=`<div class="debug-title">Prototype fixture</div><select id="debug-fixture">${['normal','loading','no-portfolio','empty-holdings','partial','stale','disconnected','page-error','holdings-error','allocation-error','updates-empty','updates-error'].map(x=>`<option ${fixture===x?'selected':''}>${x}</option>`).join('')}</select>`;document.body.append(panel);panel.querySelector('select').onchange=e=>{fixture=e.target.value;render()}}
+function validNumber(id){const el=document.getElementById(id);return el?Number(el.value):NaN}
+let selectedAssetId=null;
+document.addEventListener('click',e=>{const el=e.target.closest('[data-action]');if(!el)return;const a=el.dataset.action;
+ if(a==='tab'){const t=el.dataset.target;if(t==='overview'){nav=[];current.screen='F01'}else if(t==='portfolio'){nav=[];current.screen='F07'}else{nav=[];current.screen='WATCH'};render({scroll:'top'})}
+ else if(a==='portfolio-scope')openPortfolioPicker();
+ else if(a==='close-portfolio-picker')closePortfolioPicker();
+ else if(a==='portfolio-view-select'){current.portfolioViewId=el.dataset.id;closePortfolioPicker(false);render();setTimeout(()=>document.querySelector('[data-action="portfolio-scope"]')?.focus({preventScroll:true}),0)}
+ else if(a==='scope')openScope(); else if(a==='close-sheet')closeScope(); else if(a==='scope-toggle'){const id=el.dataset.id;sheetDraft=sheetDraft.includes(id)?sheetDraft.filter(x=>x!==id):[...sheetDraft,id];renderScopeSheet(id)}
+ else if(a==='scope-apply'){if(!sheetDraft.length)return;current.scope=[...sheetDraft];current.updateScopeIds=null;current.updateScopeLabel=null;current.overviewHoldingsExpanded=false;current.allocationExpanded=false;closeScope(false);render();setTimeout(()=>document.querySelector('[data-action="scope"]')?.focus({preventScroll:true}),0)}
+ else if(a==='currency-toggle'){currencyMenuOpen=!currencyMenuOpen;render();if(currencyMenuOpen)setTimeout(()=>document.querySelector('.currency-option[aria-selected="true"]')?.focus({preventScroll:true}),0)}
+ else if(a==='currency-option'){current.currency=el.dataset.value;currencyMenuOpen=false;render();setTimeout(()=>document.querySelector('[data-action="currency-toggle"]')?.focus({preventScroll:true}),0)}
+ else if(a==='holdings-toggle'){const y=window.scrollY;current.overviewHoldingsExpanded=!current.overviewHoldingsExpanded;render();setTimeout(()=>{window.scrollTo(0,y);document.querySelector('[data-action="holdings-toggle"]')?.focus({preventScroll:true})},0)}
+ else if(a==='navigate')push(el.dataset.screen);
+ else if(a==='updates-all'){const ids=(el.dataset.updateScope||'').split(',').filter(Boolean);push('F05',{updateScopeIds:ids,updateScopeLabel:el.dataset.updateLabel||scopeText()})}
+ else if(a==='back')back();
+ else if(a==='lens'){current.lens=el.dataset.lens;current.allocationExpanded=false;render()}
+ else if(a==='allocation-toggle'){current.allocationExpanded=!current.allocationExpanded;render();setTimeout(()=>document.querySelector('[data-action="allocation-toggle"]')?.focus({preventScroll:true}),0)}
+ else if(a==='holding'){const context=el.dataset.context||'aggregate';const portfolioId=el.dataset.portfolio||current.portfolioId;push('F04',{holdingId:el.dataset.id,holdingContext:context,portfolioId})}
+ else if(a==='breakdown'){const expanded=el.getAttribute('aria-expanded')==='true';el.setAttribute('aria-expanded',String(!expanded));document.getElementById('breakdown-slot').innerHTML=expanded?'':renderBreakdown()}
+ else if(a==='edit'){push('F13',{portfolioId:el.dataset.portfolio,holdingId:el.dataset.holding})}
+ else if(a==='update'){const ids=(el.dataset.updateScope||'').split(',').filter(Boolean);push('F06',{updateId:el.dataset.id,updateScopeIds:ids,updateScopeLabel:el.dataset.updateLabel||scopeText()})}
+ else if(a==='update-filter'){current.updateFilter=el.dataset.filter;render()}
+ else if(a==='comparison'){current.comparison=el.dataset.mode;render()}
+ else if(a==='portfolio-view'){current.portfolioViewId=el.dataset.id;nav=[];current.screen='F07';render({scroll:'top'})}
+ else if(a==='portfolio-add-holding'){current.portfolioId=el.dataset.id;push('F12',{portfolioId:el.dataset.id})}
+ else if(a==='portfolio'){push('F08',{portfolioId:el.dataset.id})}
+ else if(a==='create-portfolio'){const input=document.getElementById('pf-name');const err=document.getElementById('pf-name-error');const name=input.value.trim();if(!name){err.textContent='포트폴리오 이름을 입력해 주세요.';return}const id='p'+(data.portfolios.length+1);data.portfolios.push({id,name,daily:0,profit:0,profitRate:0,holdings:[]});current.portfolioId=id;nav=[];current.screen='F07';render({scroll:'top'})}
+ else if(a==='select-asset'){selectedAssetId=el.dataset.id;const asset=assetCatalog.find(x=>x.id===selectedAssetId);document.getElementById('selected-asset').innerHTML=`<div class="selected-asset"><strong>${asset.name}</strong><div class="section-caption">${asset.ticker} · 현재가 ${fmtKRW(asset.price)}</div></div>`;document.getElementById('add-qty').disabled=false;document.getElementById('add-avg').disabled=false;}
+ else if(a==='add-holding'){const p=data.portfolios.find(x=>x.id===current.portfolioId);const asset=assetCatalog.find(x=>x.id===selectedAssetId);const qty=validNumber('add-qty'),avg=validNumber('add-avg');document.getElementById('add-qty-error').textContent=!asset?'먼저 종목을 선택해 주세요.':(!qty||qty<=0?'신규 Holding의 보유 수량은 0보다 커야 합니다.':'');document.getElementById('add-avg-error').textContent=!asset?'':(!avg||avg<=0?'평균단가는 0보다 커야 합니다.':'');if(!asset||!qty||qty<=0||!avg||avg<=0)return;const h={...asset,qty,avg,value:asset.price*qty,profit:(asset.price-avg)*qty,profitRate:(asset.price-avg)/avg*100,daily:0};p.holdings.push(h);current.screen='F08';nav=[];render({scroll:'top'})}
+ else if(a==='save-holding'){const p=data.portfolios.find(x=>x.id===current.portfolioId);const h=p?.holdings.find(x=>x.id===current.holdingId);const qty=validNumber('edit-qty'),avg=validNumber('edit-avg');document.getElementById('edit-avg-error').textContent=(!avg||avg<=0)?'평균단가는 0보다 커야 합니다.':'';if(Number.isNaN(qty)||qty<0){document.getElementById('edit-qty-error').textContent='보유 수량은 0 이상이어야 합니다.';return}else document.getElementById('edit-qty-error').textContent='';if(!avg||avg<=0)return;h.qty=qty;if(h.country==='미국'&&h.localPrice&&h.priceBasis==='KRW_NORMALIZED'){h.localAvg=avg;h.avg=avg*REFERENCE_FIXTURE_USD_KRW;h.value=h.price*qty;h.profit=(h.price-h.avg)*qty;h.profitRate=(h.price-h.avg)/h.avg*100}else{h.avg=avg;h.value=h.price*qty;h.profit=(h.price-avg)*qty;h.profitRate=(h.price-avg)/avg*100;}nav=[];current.scope=[...new Set([...current.scope,p.id])];current.screen='F04';render({scroll:'top'})}
+ else if(a==='retry'){fixture='normal';render()}
+});
+document.addEventListener('change',e=>{if(e.target.matches('[data-action="holdings-sort"]')){current.holdingSort=e.target.value;render()}});
+function refocusRenderedTab(snapshot){setTimeout(()=>{const tabs=[...document.querySelectorAll('[role="tab"]')];const found=tabs.find(x=>x.dataset.action===snapshot.action&&((snapshot.target&&x.dataset.target===snapshot.target)||(snapshot.lens&&x.dataset.lens===snapshot.lens)||(snapshot.filter&&x.dataset.filter===snapshot.filter)||(snapshot.mode&&x.dataset.mode===snapshot.mode)));found?.focus({preventScroll:true})},0);}
+function tabSnapshot(el){return {action:el.dataset.action,target:el.dataset.target,lens:el.dataset.lens,filter:el.dataset.filter,mode:el.dataset.mode};}
+document.addEventListener('keydown',e=>{
+ const currencyTrigger=e.target.closest?.('[data-action="currency-toggle"]');
+ if(currencyTrigger&&(e.key==='ArrowDown'||e.key==='ArrowUp')){e.preventDefault();if(!currencyMenuOpen){currencyMenuOpen=true;render()}setTimeout(()=>{const opts=[...document.querySelectorAll('.currency-option')];const selected=opts.findIndex(x=>x.getAttribute('aria-selected')==='true');const idx=e.key==='ArrowUp'?(selected>0?selected-1:opts.length-1):(selected>=0&&selected<opts.length-1?selected+1:0);opts[idx]?.focus()},0);return}
+ const currencyOption=e.target.closest?.('[data-action="currency-option"]');
+ if(currencyOption&&(e.key==='ArrowDown'||e.key==='ArrowUp'||e.key==='Home'||e.key==='End')){const opts=[...document.querySelectorAll('.currency-option')];const i=opts.indexOf(currencyOption);let next=i;if(e.key==='ArrowDown')next=(i+1)%opts.length;if(e.key==='ArrowUp')next=(i-1+opts.length)%opts.length;if(e.key==='Home')next=0;if(e.key==='End')next=opts.length-1;e.preventDefault();opts[next]?.focus();return}
+ if(!document.querySelector('.sheet')&&currencyMenuOpen&&e.key==='Escape'){e.preventDefault();currencyMenuOpen=false;render();setTimeout(()=>document.querySelector('[data-action="currency-toggle"]')?.focus({preventScroll:true}),0);return}
+ const sheet=document.querySelector('.sheet');if(sheet){if(e.key==='Escape'){e.preventDefault();if(portfolioPickerOpen)closePortfolioPicker();else closeScope();return}if(e.key==='Tab'){const f=sheetFocusable();if(!f.length)return;const first=f[0],last=f[f.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}return}}
+ const tab=e.target.closest?.('[role="tab"]');if(tab&&(e.key==='ArrowRight'||e.key==='ArrowLeft'||e.key==='Home'||e.key==='End')){const tablist=tab.closest('[role="tablist"]');if(!tablist)return;const tabs=[...tablist.querySelectorAll('[role="tab"]')].filter(x=>!x.disabled);const i=tabs.indexOf(tab);let idx=i;if(e.key==='ArrowRight')idx=(i+1)%tabs.length;if(e.key==='ArrowLeft')idx=(i-1+tabs.length)%tabs.length;if(e.key==='Home')idx=0;if(e.key==='End')idx=tabs.length-1;const next=tabs[idx];const snapshot=tabSnapshot(next);e.preventDefault();next.click();refocusRenderedTab(snapshot)}});
+render({scroll:'top'});
+
+// currency-menu-outside-close
+document.addEventListener('click',e=>{if(currencyMenuOpen&&!e.target.closest('.currency-dropdown')&&!e.target.closest('[data-action="currency-toggle"]')){currencyMenuOpen=false;render();}});
+
+</script></body></html>
