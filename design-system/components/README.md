@@ -8,7 +8,9 @@ Mobile Portfolio에서 반복되는 범용 component와 상태를 정리합니�
 | `cards-and-surfaces.md` | Page, Hero, grouped surface, divider |
 | `badges-tabs-filters.md` | Navigation Tabs, Dimension Tabs, Filter, Choice Chip |
 | `selection-controls.md` | Checkbox, Radio, zero-selection |
-| `bottom-sheet.md` | Sheet, scrim, internal scroll, sticky action |
+| `bottom-sheet.md` | M3-informed modal sheet, drag handle, preset height, scrim, internal scroll |
+| `app-bar.md` | Page/Sheet header title, leading navigation, trailing action grammar |
+| `dropdown-menu.md` | Unified single-select trigger/menu/option/dropdown interaction |
 | `list-rows.md` | Portfolio/Holding/Breakdown/Search rows |
 | `financial-summary.md` | Total valuation + daily/cumulative financial summary group |
 | `allocation-bar-list.md` | Mobile allocation lens + horizontal percentage distribution |
